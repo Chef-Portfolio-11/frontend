@@ -1,13 +1,24 @@
 import React from 'react';
-import './App.css';
 import LoginRegistration from './components/LoginRegistration';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom";
+import Navigation from './components/Navigation';
+import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <LoginRegistration />
-      </header>
+      <Router>
+        <Navigation />
+        <Switch>
+          {/* Routes */}
+          <Route exact path= '/' component= {LoginRegistration} />
+            
+        </Switch>
+      </Router>
     </div>
   );
 }
