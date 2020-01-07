@@ -1,10 +1,6 @@
 import React from 'react';
 import LoginRegistration from './components/LoginRegistration';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Navigation from './components/Navigation';
 import NewUserForm from './components/NewUserForm';
 import './App.css'

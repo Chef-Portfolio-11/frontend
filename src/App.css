@@ -61,7 +61,7 @@ html{
 body {
 	background: #222;
 	font-family: 'Roboto Mono', monospace;
-	font-size: 9px;
+	/* font-size: 9px; */
 	user-select: none;
 	color: #e6e7e8;
 	overflow: hidden;
@@ -134,10 +134,10 @@ body {
 	display: none;
 }
 .container {
-	filter: blur(1px);
+	/* filter: blur(1px); */
 	position: relative;
-	width: 300px;
-	height: 300px;
+	width: 500px;
+	height: 500px;
 	transition: perspective 300ms ease;
 }
 .cube {
@@ -185,7 +185,7 @@ body {
 }
 .loginContainer div, .logoutContainer div, .registerContainer div {
 padding-top: 218px;
-font-size: 2em;
+font-size: 5em;
 }
 /* .loginRegistration {
 position: absolute;

@@ -9,7 +9,7 @@ class LoginRegistration extends React.Component {
       z: 0,
       zoom: -1500,
       opacity: 100,
-      perspective: 700,
+      perspective: 2000,
       zoomRange: [-1500, 0],
       displayPanel: false
     }
