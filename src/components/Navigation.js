@@ -19,11 +19,12 @@ const Navigation = () => {
 
     return (
         <div className='navbar-container'>
-            <NavLink className='nav-btn' to='/'><h2>Chef<span className='highlight'>Port</span>.</h2></NavLink>
+            <NavLink className='logo' to='/'><h2>Chef<span className='highlight'>Port</span>.</h2></NavLink>
             <nav className='navbar'>
                 {isLoggedIn ? 
                     <NavLink className='nav-btn' to='/' onClick={logOut()}>Log Out</NavLink> : 
                     <>
+                    <NavLink className='nav-btn' to='/login'>Log In</NavLink>
                     </>
                 }
             </nav>

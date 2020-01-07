@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { getRecipes } from '../actions/actions'
 import Loader from 'react-loader-spinner'
-import Recipe from './Recipe'
+import Recipe from './Recipe.js'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import RecipeForm from './RecipeForm';
 
 const RecipeList = props => {
 
@@ -21,7 +20,7 @@ const RecipeList = props => {
                 <br />
                 <Loader
                     type="Puff"
-                    color="#00BFFF"
+                    color="#07FE20"
                     height={100}
                     width={100}
                 />

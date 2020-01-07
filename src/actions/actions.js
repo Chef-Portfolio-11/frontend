@@ -1,4 +1,4 @@
-import axiosWithAuth from '../utils/axiosWithAuth'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 import axios from 'axios'
 
 export const FETCH_DATA_START = 'FETCH_DATA_START';
@@ -39,7 +39,7 @@ export const handleBizEmail = e => {
     return { type: HANDLE_BIZ_EMAIL, payload: e.target.value }
 }
 
-export default getRecipes = () => dispatch => {
+export const getRecipes = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     console.log(`Getting recipes!`)
 
