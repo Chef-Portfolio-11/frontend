@@ -152,15 +152,15 @@
 }
  .loginContainer div, .logoutContainer div, .registerContainer div {
    padding-top: 218px;
-   font-size: 2em;
+   font-size: 6em;
  }
- /* .loginRegistration {
+ .loginRegistration {
    position: absolute;
    height: 300px;
    top: -150px;
    right: 0px;
- } */
- /* .loginRegistration.fullpage {
+ }
+ .loginRegistration.fullpage {
    top: 20%;
    right: 50%;
- } */
+ }
