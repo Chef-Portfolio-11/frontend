@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import { getRecipes } from '../actions/actions'
 import Loader from 'react-loader-spinner'
 import Recipe from './Recipe.js'
@@ -33,7 +32,6 @@ const RecipeList = props => {
                     ))
                 }
             </div>
-            {/* <Link to='/add-recipe'>Add a recipe</Link> */}
         </div>
   );
 };
