@@ -43,8 +43,8 @@ export const getRecipes = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     console.log(`Getting recipes!`)
 
-    axios
-        .get(`https://bw-chef-portfolio.herokuapp.com/api/recipes`)
+    axiosWithAuth()
+        .get(`/visitors`)
         .then(res => {
             console.log(res.data)
             dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
@@ -60,7 +60,7 @@ export const handleSubmitUser = data => dispatch => {
     const newUser = {...data, id: Date.now()}
 
     axiosWithAuth()
-        .post(`/register`, newUser)
+        .post(`/auth/register`, newUser)
         .then(res => {
             console.log(res)
             dispatch({ type: POST_DATA_SUCCESS, payload: res.data })
@@ -75,7 +75,7 @@ export const handleLogin = data => dispatch => {
     const user = {...data}
 
     axiosWithAuth()
-        .post(`/login`, user)
+        .post(`/auth/login`, user)
         .then(res => {
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('userId', res.data.id)
