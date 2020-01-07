@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Login from './Login';
 
 class LoginRegistration extends React.Component {
   constructor() {
@@ -7,9 +8,9 @@ class LoginRegistration extends React.Component {
       x: 0,
       y: -45,
       z: 0,
-      zoom: -1500,
+      zoom: -100,
       opacity: 100,
-      perspective: 2000,
+      perspective: 700,
       zoomRange: [-1500, 0],
       displayPanel: false
     }
@@ -38,25 +39,25 @@ class LoginRegistration extends React.Component {
   initialPosition() {
     this.setState({
       x: 0, y: -45, z: 0,
-      zoom: -1500
+      zoom: -100
     })
   }
   LoggedInPosition() {
     this.setState({
       x: 0, y: 90, z: 0,
-      zoom: -1500
+      zoom: -100
     })
   }
   RegisteringPosition() {
     this.setState({
       x: -90, y: 0, z: 0,
-      zoom: 0
+      zoom: -0
     })
   }
   LoggingInPosition() {
     this.setState({
       x: 90, y: 0, z: 0,
-      zoom: 0
+      zoom: -0
     })
   }
   onMouseMove(e) {
@@ -64,6 +65,9 @@ class LoginRegistration extends React.Component {
       var hh = window.innerHeight / 2, hw = window.innerWidth / 2
       this.setState({ x: (hh - e.clientY) / hh * 90, y: (e.clientX - hw) / hw * 90, z: 0 })
     }
+  }
+  processLogin(){
+    this.LoggedInPosition().bind(this);
   }
 
   render() {
@@ -88,7 +92,7 @@ class LoginRegistration extends React.Component {
               <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
             <figure className={'loginFormPanel'} style={surfaceStyle}>
-              <div>LoginForm</div>
+              <div><Login /></div>
               <button className={'submit cube-button'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
               <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
