@@ -6,14 +6,11 @@ const Navigation = () => {
 
     return (
         <div className='navbar-container'>
+            <NavLink className='nav-btn' to='/'><h2>Chef<span className='highlight'>Port</span>.</h2></NavLink>
             <nav className='navbar'>
-                <NavLink className='nav-btn' to='/'>Home</NavLink>
-                
                 {isLoggedIn ? 
                     <NavLink className='nav-btn' to='/logout'>Log Out</NavLink> : 
                     <>
-                    <NavLink className='nav-btn' to='/login'>Log In</NavLink>
-                    <NavLink className='nav-btn' to='/register'>Register</NavLink>
                     </>
                 }
             </nav>
