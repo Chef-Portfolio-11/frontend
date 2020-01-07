@@ -2,11 +2,13 @@ import React from 'react'
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import { handleName, handleUsername, handleEmail, handlePassword, handleSubmitUser} from '../actions/actions.js/index.js';
+import { handleName, handleUsername, handleEmail, handlePassword, handleSubmitUser} from '../actions/actions';
 
-const NewChefForm = props => {
+const NewUserForm = props => {
 
     return (
+        <>
+        <h2>Start your profile</h2>
         <form>
             <input
                 type='text'
@@ -33,7 +35,11 @@ const NewChefForm = props => {
                 placeholder='Password'
             />
             {/* Need a checkbox for chef or not chef */}
-            <button onClick={e => {
+            <div className='checkbox'>
+                <input type="checkbox" name="chef" value='true' />
+                <p>I am a professional chef</p>
+            </div>
+            <button className='submit-btn' onClick={e => {
                 e.preventDefault();
                 props.handleSubmitUser(props.inputValues);
             }}>Submit</button>
@@ -49,6 +55,7 @@ const NewChefForm = props => {
             </>
             }
         </form>
+        </>
     );
 };
 
@@ -63,4 +70,4 @@ const mapStateToProps = state => {
 export default connect(
     mapStateToProps,
     { handleName, handleUsername, handleEmail, handleSubmitUser, handlePassword }
-)(NewChefForm)
+)(NewUserForm)
