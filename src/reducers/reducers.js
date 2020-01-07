@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
         case FETCH_DATA_SUCCESS:
             return {
                 ...state,
-                chefData: action.payload,
+                recipeData: action.payload,
                 isFetching: false,
                 error: null
             };
