@@ -8,6 +8,7 @@ import Routes from "./Routes";
 
 // import recipeData from '../data/recipes.json';
 
+import RecipeList from './components/RecipeList'
 import './App.css'
 
 function App() {
@@ -17,9 +18,10 @@ function App() {
         <Navigation />
         <Switch>
           {/* Routes */}
+          <Route exact path='/' component={RecipeList} />
           <Route path='/register' component={NewUserForm} />
-          <Route exact path= '/' component= {LoginRegistration} />
-            
+          <Route path= '/login' component= {LoginRegistration} />
+          
         </Switch>
       </Router>
     </div>
