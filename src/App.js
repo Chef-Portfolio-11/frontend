@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Navigation from './components/Navigation';
 import './App.css'
+import NewChefForm from './components/NewChefForm';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Navigation />
         <Switch>
           {/* Routes */}
+          <Route path='/register' component={NewChefForm} />
           <Route exact path= '/' component= {LoginRegistration} />
             
         </Switch>

@@ -3,8 +3,18 @@
 }
 
 .navbar-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #C4C4C4;
+  background-color: #2F2D2D;
+}
+
+.navbar-container h2{
+  font-size: 2rem;
+  margin: auto 1.5rem;
+  color: #07FE20;
 }
 
 .navbar{
@@ -15,14 +25,34 @@
 }
 
 .nav-btn{
-  margin: auto 2rem;
-  padding: 0.75rem;
+  margin: auto 1rem;
+  padding: 0.25rem;
   text-decoration: none;
-  background-color: black;
   color: white;
-  border-radius: 15px;
 }
 
+<<<<<<< HEAD
+.nav-btn:hover{
+  color: #07FE20;
+}
+
+.register{
+  color: black;
+  background-color: #07FE20;
+  padding: .5rem 2rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.register:hover{
+  color: White;
+  background-color: #108E0C;
+}
+
+.highlight{
+  color: white;
+}
+=======
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
  body {
@@ -164,3 +194,4 @@
    top: 20%;
    right: 50%;
  } */
+>>>>>>> 4aeaf5a30a54e52eed0fc60ad38267b9b0e93325
