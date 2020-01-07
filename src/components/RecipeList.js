@@ -32,7 +32,6 @@ const RecipeList = props => {
                     ))
                 }
             </div>
-            {/* <Link to='/add-recipe'>Add a recipe</Link> */}
         </div>
   );
 };

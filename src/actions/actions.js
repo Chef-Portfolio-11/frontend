@@ -38,6 +38,14 @@ export const handleBizEmail = e => {
     return { type: HANDLE_BIZ_EMAIL, payload: e.target.value }
 }
 
+export const redirectLogin = props => {
+    props.history.push('/login')
+}
+
+export const redirectLoggedIn = props => {
+    props.history.push('/protected')
+}
+
 export const getRecipes = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     console.log(`Getting recipes!`)
@@ -63,6 +71,7 @@ export const handleSubmitUser = data => dispatch => {
         .then(res => {
             console.log(res)
             dispatch({ type: POST_DATA_SUCCESS, payload: res.data })
+            dispatch(redirectLogin())
         })
         .catch(err => {
             dispatch({ type: POST_DATA_FAILURE, payload: err })
@@ -76,9 +85,12 @@ export const handleLogin = data => dispatch => {
     axiosWithAuth()
         .post(`/auth/login`, user)
         .then(res => {
+            dispatch({ type: POST_DATA_SUCCESS, payload: res})
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('userId', res.data.id)
         })
-        .catch(err => console.log(`There was a login error; ${err}`))
+        .catch(err => {
+            dispatch({ type: POST_DATA_FAILURE, payload: err})
+        })
 }
 
