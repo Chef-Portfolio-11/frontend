@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import NewUserForm from './NewUserForm';
 
 class LoginRegistration extends React.Component {
   constructor() {
@@ -9,7 +10,7 @@ class LoginRegistration extends React.Component {
       z: 0,
       zoom: -1500,
       opacity: 100,
-      perspective: 700,
+      perspective: 2000,
       zoomRange: [-1500, 0],
       displayPanel: false
     }
@@ -82,15 +83,15 @@ class LoginRegistration extends React.Component {
             <figure className={'logoutContainer'} style={surfaceStyle} onClick={this.initialPosition.bind(this)}><div>Logout</div></figure>
             <figure className={'registerContainer'} style={surfaceStyle} onClick={this.RegisteringPosition.bind(this)}><div>Register</div></figure>
             <figure className={'registrationFormPanel'} style={surfaceStyle}>
-              <div>Registration Form</div>
+              <NewUserForm />
               <br />
-              <button className={'submit'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
-              <button className={'cancel'} onClick={this.initialPosition.bind(this)}>Cancel</button>
+              <button className={'submit cube-button'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
+              <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
             <figure className={'loginFormPanel'} style={surfaceStyle}>
               <div>LoginForm</div>
-              <button className={'submit'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
-              <button className={'cancel'} onClick={this.initialPosition.bind(this)}>Cancel</button>
+              <button className={'submit cube-button'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
+              <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
             {/* {Array(6).fill().map(() => <figure style={surfaceStyle} />)} */}
           </div>

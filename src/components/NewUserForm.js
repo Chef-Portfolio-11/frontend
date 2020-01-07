@@ -2,11 +2,13 @@ import React from 'react'
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import { handleName, handleUsername, handleEmail, handlePassword, handleSubmit} from '../actions/chefActions';
+import { handleName, handleUsername, handleEmail, handlePassword, handleBizEmail, handlePhone, handleSubmitUser} from '../actions/actions';
 
-const NewChefForm = props => {
+const NewUserForm = props => {
 
     return (
+        <>
+        <h2>Start your profile</h2>
         <form>
             <input
                 type='text'
@@ -32,9 +34,32 @@ const NewChefForm = props => {
                 onChange={props.handlePassword}
                 placeholder='Password'
             />
-            <button onClick={e => {
+            <input 
+                type='text'
+                value={props.inputValues.location}
+                onChange={props.handleLocation}
+                placeholder='Location'
+            />
+            <input 
+                type='text'
+                value={props.inputValues.phone}
+                onChange={props.handlePhone}
+                placeholder='Phone Number'
+            />
+            <input 
+                type='text'
+                value={props.inputValues.bizEmail}
+                onChange={props.handleBizEmail}
+                placeholder='Business Email'
+            />
+            {/* Need a checkbox for chef or not chef */}
+            {/* <div className='checkbox'>
+                <input type="checkbox" name="chef" value='true' />
+                <p>I am a professional chef</p>
+            </div> */}
+            <button className='submit-btn' onClick={e => {
                 e.preventDefault();
-                props.handleSubmit(props.inputValues);
+                props.handleSubmitUser(props.inputValues);
             }}>Submit</button>
             {props.isPosting && 
             <>
@@ -48,6 +73,7 @@ const NewChefForm = props => {
             </>
             }
         </form>
+        </>
     );
 };
 
@@ -61,5 +87,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { handleName, handleUsername, handleEmail, handleSubmit, handlePassword }
-)(NewChefForm)
+    { handleName, handleUsername, handleEmail, handleSubmitUser, handlePassword, handlePhone, handleBizEmail }
+)(NewUserForm)
