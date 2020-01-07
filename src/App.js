@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginRegistration from './components/LoginRegistration';
 import {
   BrowserRouter as Router,
   Route,
@@ -14,6 +15,8 @@ function App() {
         <Navigation />
         <Switch>
           {/* Routes */}
+          <Route exact path= '/' component= {LoginRegistration} />
+            
         </Switch>
       </Router>
     </div>
