@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { getRecipes } from '../actions/actions'
 import Loader from 'react-loader-spinner'
-import recipe from './recipe'
+import Recipe from './Recipe'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import recipeForm from './recipeForm';
+import RecipeForm from './RecipeForm';
 
 const RecipeList = props => {
 
