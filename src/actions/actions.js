@@ -88,6 +88,7 @@ export const handleLogin = data => dispatch => {
             dispatch({ type: POST_DATA_SUCCESS, payload: res})
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('userId', res.data.id)
+            dispatch(redirectLoggedIn())
         })
         .catch(err => {
             dispatch({ type: POST_DATA_FAILURE, payload: err})
