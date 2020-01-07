@@ -1,5 +1,4 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth'
-import axios from 'axios'
 
 export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
@@ -44,7 +43,7 @@ export const getRecipes = () => dispatch => {
     console.log(`Getting recipes!`)
 
     axiosWithAuth()
-        .get(`/visitors`)
+        .get(`/recipes`)
         .then(res => {
             console.log(res.data)
             dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
