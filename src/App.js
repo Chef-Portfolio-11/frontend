@@ -6,8 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import Navigation from './components/Navigation';
+import NewUserForm from './components/NewUserForm';
 import './App.css'
-import NewChefForm from './components/NewChefForm';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Navigation />
         <Switch>
           {/* Routes */}
-          <Route path='/register' component={NewChefForm} />
+          <Route path='/register' component={NewUserForm} />
           <Route exact path= '/' component= {LoginRegistration} />
             
         </Switch>
