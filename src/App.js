@@ -6,8 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import Navigation from './components/Navigation';
-import './App.css'
 import NewChefForm from './components/NewChefForm';
+import './App.css'
 
 function App() {
   return (

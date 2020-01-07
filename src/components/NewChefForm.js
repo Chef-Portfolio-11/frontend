@@ -2,7 +2,7 @@ import React from 'react'
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import { handleName, handleUsername, handleEmail, handlePassword, handleSubmit} from '../actions/chefActions';
+import { handleName, handleUsername, handleEmail, handlePassword, handleSubmitUser} from '../actions/actions.js/index.js';
 
 const NewChefForm = props => {
 
@@ -32,9 +32,10 @@ const NewChefForm = props => {
                 onChange={props.handlePassword}
                 placeholder='Password'
             />
+            {/* Need a checkbox for chef or not chef */}
             <button onClick={e => {
                 e.preventDefault();
-                props.handleSubmit(props.inputValues);
+                props.handleSubmitUser(props.inputValues);
             }}>Submit</button>
             {props.isPosting && 
             <>
@@ -61,5 +62,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { handleName, handleUsername, handleEmail, handleSubmit, handlePassword }
+    { handleName, handleUsername, handleEmail, handleSubmitUser, handlePassword }
 )(NewChefForm)
