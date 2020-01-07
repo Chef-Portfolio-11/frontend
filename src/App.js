@@ -16,12 +16,9 @@ function App() {
         <Navigation />
         <Switch>
           {/* Routes */}
-<<<<<<< HEAD
           <Route path='/register' component={NewChefForm} />
-=======
           <Route exact path= '/' component= {LoginRegistration} />
             
->>>>>>> 4aeaf5a30a54e52eed0fc60ad38267b9b0e93325
         </Switch>
       </Router>
     </div>
