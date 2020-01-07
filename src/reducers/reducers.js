@@ -9,7 +9,8 @@ import {
     HANDLE_EMAIL,
     HANDLE_USERNAME,
     HANDLE_PASSWORD,
-    HANDLE_CHEF,
+    HANDLE_PHONE,
+    HANDLE_BIZ_EMAIL
 } from '../actions/actions';
   
 const initialState = {
@@ -22,9 +23,11 @@ const initialState = {
         email: '',
         username: '',
         password: '',
-        isChef: false,
+        business_phone: '',
+        business_email: '',
     },
     chefData: null,
+    recipeData: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -79,12 +82,20 @@ const reducer = (state = initialState, action) => {
                     password: action.payload
                 }
             };
-        case HANDLE_CHEF:
+        case HANDLE_PHONE:
             return {
                 ...state,
                 inputValues: {
                     ...state.inputValues,
-                    isChef: action.payload
+                    business_phone: action.payload
+                }
+            }
+        case HANDLE_BIZ_EMAIL:
+            return {
+                ...state,
+                inputValues: {
+                    ...state.inputValues,
+                    business_email: action.payload
                 }
             }
         case POST_DATA_START:

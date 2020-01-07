@@ -16,9 +16,10 @@ function App() {
         <Navigation />
         <Switch>
           {/* Routes */}
+          <Route exact path='/' component={RecipeList} />
           <Route path='/register' component={NewUserForm} />
-          <Route exact path= '/' component= {LoginRegistration} />
-            
+          <Route path= '/login' component= {LoginRegistration} />
+          
         </Switch>
       </Router>
     </div>
