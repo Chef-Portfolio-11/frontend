@@ -2,13 +2,13 @@ import React from 'react'
 import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import { handleName, handleUsername, handleEmail, handlePassword, handleSubmitUser} from '../actions/actions';
+import { handleName, handleUsername, handleEmail, handlePassword, handleBizEmail, handlePhone, handleSubmitUser} from '../actions/actions';
 
 const NewUserForm = props => {
 
     return (
         <>
-        <h2>Start your profile</h2>
+        <h2>Build your profile</h2>
         <form>
             <input
                 type='text'
@@ -34,11 +34,29 @@ const NewUserForm = props => {
                 onChange={props.handlePassword}
                 placeholder='Password'
             />
+            <input 
+                type='text'
+                value={props.inputValues.location}
+                onChange={props.handleLocation}
+                placeholder='Location'
+            />
+            <input 
+                type='text'
+                value={props.inputValues.phone}
+                onChange={props.handlePhone}
+                placeholder='Phone Number'
+            />
+            <input 
+                type='text'
+                value={props.inputValues.bizEmail}
+                onChange={props.handleBizEmail}
+                placeholder='Business Email'
+            />
             {/* Need a checkbox for chef or not chef */}
-            <div className='checkbox'>
+            {/* <div className='checkbox'>
                 <input type="checkbox" name="chef" value='true' />
                 <p>I am a professional chef</p>
-            </div>
+            </div> */}
             <button className='submit-btn' onClick={e => {
                 e.preventDefault();
                 props.handleSubmitUser(props.inputValues);
@@ -48,7 +66,7 @@ const NewUserForm = props => {
                 <p>Registering...</p>
                 <Loader
                     type="Puff"
-                    color="#00BFFF"
+                    color="#07FE20"
                     height={100}
                     width={100}
                 />
@@ -69,5 +87,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { handleName, handleUsername, handleEmail, handleSubmitUser, handlePassword }
+    { handleName, handleUsername, handleEmail, handleSubmitUser, handlePassword, handlePhone, handleBizEmail }
 )(NewUserForm)

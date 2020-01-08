@@ -1,11 +1,13 @@
 import axios from "axios";
 
-export const axiosWithAuth = () => {
-  const token = localStorage.getItem("token");
+const axiosWithAuth = () => {
+  const token = localStorage.getItem('token');
   return axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: `https://cors-anywhere.herokuapp.com/https://bw-chef-portfolio.herokuapp.com/api`,
     headers: {
-      authorization: token
+        'Content-Type': 'application/json',
+        Authorization: token
     }
-  });
-};
+  })
+}
+export default axiosWithAuth;
