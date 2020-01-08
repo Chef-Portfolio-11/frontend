@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginRegistration from './components/LoginRegistration';
-import CreateRecipie from "./components/CreateRecipie";
+import CreateRecipe from "./components/CreateRecipe";
 import {
   BrowserRouter as Router,
   Route,
@@ -19,8 +19,9 @@ function App() {
           {/* Routes */}
           <Route path='/register' component={NewUserForm} />
           <Route exact path= '/' component= {LoginRegistration} />
-          <Route path="/create-recipie" render={() => {
-            return <CreateRecipie />
+
+          <Route path="/create-recipe" render={() => {
+            return <CreateRecipe />
           }}/>
             
         </Switch>

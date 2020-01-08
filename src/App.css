@@ -64,7 +64,6 @@ body {
 	font-size: 9px;
 	user-select: none;
 	color: #e6e7e8;
-	overflow: hidden;
 }
 .wrapper {
 	display: flex;
@@ -226,4 +225,8 @@ input{
 	align-items: center;
 	font-size: 1.5rem;
 	padding: 1rem;
+}
+
+body #root .App .recipe {
+	overflow: auto;
 }
