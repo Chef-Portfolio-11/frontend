@@ -66,7 +66,7 @@ const NewUserForm = props => {
                 <p>Registering...</p>
                 <Loader
                     type="Puff"
-                    color="#00BFFF"
+                    color="#07FE20"
                     height={100}
                     width={100}
                 />

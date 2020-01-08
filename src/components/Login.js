@@ -27,14 +27,14 @@ const NewUserForm = props => {
                 e.preventDefault();
                 props.handleLogin(props.inputValues);
             }}>Submit</button>
-            <p>Don't have an account?</p>
-            <NavLink to='/register'><button>Register</button></NavLink>
+            {/* <p>Don't have an account?</p>
+            <NavLink to='/register'><button>Register</button></NavLink> */}
             {props.isPosting && 
             <>
                 <p>Logging you in...</p>
                 <Loader
                     type="Puff"
-                    color="#00BFFF"
+                    color="#07FE20"
                     height={100}
                     width={100}
                 />

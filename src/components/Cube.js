@@ -89,12 +89,10 @@ class LoginRegistration extends React.Component {
             <figure className={'registrationFormPanel'} style={surfaceStyle}>
               <NewUserForm />
               <br />
-              <button className={'submit cube-button'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
               <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
             <figure className={'loginFormPanel'} style={surfaceStyle}>
               <div><Login /></div>
-              <button className={'submit cube-button'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
               <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
             {/* {Array(6).fill().map(() => <figure style={surfaceStyle} />)} */}
