@@ -134,7 +134,6 @@ right: 10px;
 display: none;
 }
 .container {
-	filter: blur(1px);
 	position: relative;
 	width: 300px;
 	height: 300px;
