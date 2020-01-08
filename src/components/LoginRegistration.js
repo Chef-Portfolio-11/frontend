@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from './Login';
 import NewUserForm from './NewUserForm';
 
@@ -16,9 +16,10 @@ class LoginRegistration extends React.Component {
       displayPanel: false
     }
     this.onMouseMove = this.onMouseMove.bind(this)
+    // const [isLoggesIn, setIsLoggedIn] = useState([]);
+    // setIsLoggedIn(this.props.isLoggedIn);
   }
-  
-  // const [savedList, setSavedList] = useState([]);
+
 
   componentDidMount() {
     //   document.addEventListener('mousemove', this.onMouseMove)
@@ -67,7 +68,7 @@ class LoginRegistration extends React.Component {
       this.setState({ x: (hh - e.clientY) / hh * 90, y: (e.clientX - hw) / hw * 90, z: 0 })
     }
   }
-  processLogin(){
+  processLogin() {
     this.LoggedInPosition().bind(this);
   }
 
@@ -76,6 +77,15 @@ class LoginRegistration extends React.Component {
       cubeStyle = { transform: `translateZ(${zoom}px) rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)` },
       containerStyle = { perspective: `${perspective}px` },
       surfaceStyle = { opacity: opacity / 100 }
+
+    // if (this.props.isLoggedIn != this.isLoggedIn) {
+    //   this.setIsLoggedIn(this.props.isLoggedIn);
+    //   if (this.isLoggedIn) {
+    //     this.LoggedInPosition();
+    //   } else {
+    //     this.initialPosition();
+    //   }
+    // }
 
     return (
       <div className="wrapper loginRegistration">

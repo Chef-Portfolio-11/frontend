@@ -8,7 +8,7 @@ const NewUserForm = props => {
 
     return (
         <>
-        <h2>Start your profile</h2>
+        <h3>Start your profile</h3>
         <form>
             <input
                 type='text'
