@@ -1,0 +1,208 @@
+.recipe-card {
+	display: inline-flex;
+	width: 265px;
+	height: 426px;
+	margin: 18px 12px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 0 12px 3px rgba(42, 50, 53, .15);
+}
+
+.recipe-card--light {
+	color: #ffffff;
+}
+
+.recipe-card--dark {
+	color: #2a3235;
+}
+
+.recipe-card__image {
+	width: 100%;
+	position: absolute;
+	z-index: 0;
+}
+
+.recipe-card__content {
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+	padding: 30px 14px 0 24px;
+	box-sizing: border-box;
+}
+
+.recipe-card__content--light {
+	background-image: linear-gradient(rgba(42, 50, 53, .15) 85%, transparent)
+}
+
+.recipe-card__tags {
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+}
+
+.recipe-card__tag {
+	margin-right: 6px;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 9px;
+	text-transform: uppercase;
+}
+
+.recipe-card__heading {
+	margin: 6px 0 12px;
+	font-family: 'Frank Ruhl Libre', serif;
+	font-size: 28px;
+	font-weight: 400;
+}
+
+.recipe-card__details {
+	display: flex;
+	list-style: none;
+}
+
+.recipe-card__detail {
+	width: 33%;
+}
+
+.recipe-card__detail-label {
+	display: block;
+	margin-bottom: 5px;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 9px;
+	text-transform: uppercase;
+}
+
+.recipe-card__detail-text {
+	margin: 0;
+	font-family: 'Frank Ruhl Libre', serif;
+	font-size: 14px;
+}
+
+.recipe-card__detail-star {
+	display: inline-block;
+	width: 10px;
+	margin-right: 2px;
+}
+
+.recipe-card__button {
+	position: absolute;
+	z-index: 5;
+	cursor: pointer;
+}
+
+.recipe-card__button-share {
+	display: flex;
+	justify-content: center;
+	top: 14px;
+	right: 14px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+
+.recipe-card__button-share--light {
+	background-color: #ffffff;
+}
+
+.recipe-card__button-share--dark {
+	background-color: #2a3235;
+}
+
+.recipe-card__button-dots {
+	position: relative;
+	top: 1px;
+	width: 10px;
+}
+
+.recipe-card__button-view {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	left: 0;
+	right: 0;
+	bottom: 27px;
+	width: 165px;
+	height: 40px;
+	margin: 0 auto;
+	padding: 6px 12px;
+	border-radius: 24px;
+	font-family: 'Frank Ruhl Libre', serif;
+	font-size: 14px;
+}
+
+.recipe-card__button-view--light {
+	background-color: #ffffff;
+	color: #2a3235;
+}
+
+.recipe-card__button-view--dark {
+	background-color: #2a3235;
+	color: #ffffff;
+}
+
+.recipe-card__button-arrow {
+	display: inline-flex;
+	width: 12px;
+	margin-top: 2px;
+	margin-left: 12px;
+}
+
+@media screen and (min-width: 768px) {
+	.recipe-card {
+		width: 305px;
+		height: 490px;
+		margin: 0 30px;
+	}
+
+	.recipe-card__content {
+		padding: 35px 16px 0 28px;
+	}
+
+ 	.recipe-card__content--light {
+		background-image: linear-gradient(rgba(42, 50, 53, .15) 90%, transparent)
+	}
+
+	.recipe-card__heading {
+		margin: 2px 0 14px;
+		font-size: 42px;
+	}
+
+	.recipe-card__detail {
+		width: 32%;
+		margin-right: 7px;
+	}
+
+	.recipe-card__detail-text {
+		font-size: 15px;
+	}
+
+	.recipe-card__button-share {
+		top: 16px;
+		right: 16px;
+		width: 24px;
+		height: 24px;
+	}
+
+	.recipe-card__button-dots {
+		top: 1px;
+		width: 12px;
+	}
+
+	.recipe-card__button-view {
+		width: 180px;
+		height: 45px;
+		font-size: 15px;
+	}
+
+	.recipe-card__button-view--light:hover {
+		background-color: #f6f6f6;
+	}
+
+	.recipe-card__button-view--dark:hover {
+		background-color: #374145;
+	}
+
+	.recipe-card__button-arrow {
+		width: 15px;
+	}
+}
