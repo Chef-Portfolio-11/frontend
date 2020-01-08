@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginRegistration from './components/LoginRegistration';
+import Cube from './components/Cube';
 import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Navigation from './components/Navigation';
 import NewUserForm from './components/NewUserForm';
@@ -10,6 +10,10 @@ import Routes from "./Routes";
 
 import RecipeList from './components/RecipeList'
 import './App.css'
+import PrivateRoute from './components/PrivateRoute';
+import Profiles from './components/Profiles';
+import Login from './components/Login'
+
 
 function App() {
   return (
@@ -20,6 +24,8 @@ function App() {
           {/* Routes */}
           <Route exact path='/' component={RecipeList} />
           <Route path='/register' component={NewUserForm} />
+          <Route path='/Profiles' component={Profiles} />
+          
           {/* <Route path= '/login' component= {LoginRegistration} /> */}
           
         </Switch>

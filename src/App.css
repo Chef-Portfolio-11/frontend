@@ -277,3 +277,21 @@ input{
 .recipe p{
 	font-size: 1.4rem;
 }
+
+.Profile {
+	height: 200px;
+	width: 400px;
+	border: 1px solid black;
+	font-size: 3em;
+	padding: 15px;
+	margin: 20px;	
+	box-shadow: 5px 5px 5px 3px black;
+	background: #1234;
+	border-radius: 10px;
+}
+
+.prof {
+	display: flex;
+	flex-wrap: wrap;
+}
+

@@ -9,6 +9,7 @@ const NewUserForm = props => {
     return (
         <>
         <h3>Start your profile</h3>
+        <h2>Build your profile</h2>
         <form>
             <input
                 type='text'
@@ -66,7 +67,7 @@ const NewUserForm = props => {
                 <p>Registering...</p>
                 <Loader
                     type="Puff"
-                    color="#00BFFF"
+                    color="#07FE20"
                     height={100}
                     width={100}
                 />

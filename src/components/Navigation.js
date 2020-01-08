@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import LoginRegistration from './LoginRegistration';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import Cube from './Cube';
 
 const Navigation = () => {
     const isLoggedIn = false;
@@ -31,7 +31,7 @@ const Navigation = () => {
                 }
                 </nav>
             </div>
-            <LoginRegistration isLoggedIn={true}  />
+            {/* <Cube isLoggedIn={true}  /> */}
         </div>
     )
 }
