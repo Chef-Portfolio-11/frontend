@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner'
 import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import { handleUsername, handlePassword, handleLogin} from '../actions/actions';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 const NewUserForm = props => {
 
