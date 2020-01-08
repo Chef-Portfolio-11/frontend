@@ -16,12 +16,8 @@
     "react-loader-spinner": "^3.1.5",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
-<<<<<<< HEAD
     "react-router-dom": "^5.1.2",
     "react-router-redux": "^4.0.8",
-=======
-    "react-router-dom": "5.0.1",
->>>>>>> f665634bcbae1e50e4d93c81a9bd38fb9c2c934a
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
