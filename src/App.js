@@ -1,6 +1,11 @@
 import React from 'react';
+import CreateRecipe from "./components/CreateRecipe";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom";
 import Cube from './components/Cube';
-import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Navigation from './components/Navigation';
 import NewUserForm from './components/NewUserForm';
 import RecipeList from './components/RecipeList'
@@ -19,6 +24,11 @@ function App() {
           {/* Routes */}
           <Route exact path='/' component={RecipeList} />
           <Route path='/register' component={NewUserForm} />
+
+          <Route path="/create-recipe" render={() => {
+            return <CreateRecipe />
+          }}/>
+            
           <Route path='/login' component={Cube} />
           {/* <Route path='/login' component={Login} />
           <Route path='/register' component={NewUserForm} /> */}

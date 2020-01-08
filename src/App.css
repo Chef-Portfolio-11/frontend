@@ -73,7 +73,6 @@ body {
 	font-family: 'Roboto Mono', monospace;
 	user-select: none;
 	color: #e6e7e8;
-	overflow: hidden;
 }
 .wrapper {
 	display: flex;
