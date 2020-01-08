@@ -1,0 +1,42 @@
+[
+	{
+		"author": {
+			"name": "Jennifer Pallian"
+		},
+		"blog": {
+			"name": "Foodess",
+			"url": "https://foodess.com"
+		},
+		"name": "Apple Cinnamon Gingersnaps",
+		"image": {
+			"src": "images/apple-cinnamon-cookies.jpg",
+			"alt": "Plate of apple cinnamon gingersnap cookies"
+		},
+		"tags": ["Snack", "Dessert"],
+		"details": {
+			"difficultyLevel": "Beginner",
+			"timeNeeded": "55 minutes",
+			"rating": 4
+		}
+	},
+	{
+		"author": {
+			"name": "Jennifer Pallian"
+		},
+		"blog": {
+			"name": "Foodess",
+			"url": "https://foodess.com"
+		},
+		"name": "Apple Pie Cake",
+		"image": {
+			"src": "images/apple-pie-cake.jpg",
+			"alt": "Apple pie cake on a plate"
+		},
+		"tags": ["Dessert"],
+		"details": {
+			"difficultyLevel": "Advanced",
+			"timeNeeded": "1 hour and 5 minutes",
+			"rating": 4
+		}
+	}
+]
