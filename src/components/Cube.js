@@ -13,9 +13,10 @@ class LoginRegistration extends React.Component {
       opacity: 100,
       perspective: 700,
       zoomRange: [-1500, 0],
-      displayPanel: false
+      displayPanel: false,
+      isTuckedAway: true
     }
-    this.onMouseMove = this.onMouseMove.bind(this)
+    // this.onMouseMove = this.onMouseMove.bind(this)
     // const [isLoggesIn, setIsLoggedIn] = useState([]);
     // setIsLoggedIn(this.props.isLoggedIn);
   }
@@ -41,54 +42,47 @@ class LoginRegistration extends React.Component {
   initialPosition() {
     this.setState({
       x: 0, y: -45, z: 0,
-      zoom: -800
-    })
+      zoom: -800, isTuckedAway: true
+    });
+    console.log('tucking away', this.state.isTuckedAway);
   }
   LoggedInPosition() {
     this.setState({
       x: 0, y: 90, z: 0,
-      zoom: -800
+      zoom: -800, isTuckedAway: true
     })
   }
   RegisteringPosition() {
     this.setState({
       x: -90, y: 0, z: 0,
-      zoom: -0
+      zoom: -0, isTuckedAway: false
     })
   }
   LoggingInPosition() {
     this.setState({
       x: 90, y: 0, z: 0,
-      zoom: -0
+      zoom: -0, isTuckedAway: false
     })
   }
-  onMouseMove(e) {
-    if (!this.state.displayPanel) {
-      var hh = window.innerHeight / 2, hw = window.innerWidth / 2
-      this.setState({ x: (hh - e.clientY) / hh * 90, y: (e.clientX - hw) / hw * 90, z: 0 })
-    }
-  }
+  // onMouseMove(e) {
+  //   if (!this.state.displayPanel) {
+  //     var hh = window.innerHeight / 2, hw = window.innerWidth / 2
+  //     this.setState({ x: (hh - e.clientY) / hh * 90, y: (e.clientX - hw) / hw * 90, z: 0 })
+  //   }
+  // }
   processLogin() {
     this.LoggedInPosition().bind(this);
   }
 
   render() {
-    var { x, y, z, zoom, zoomRange, opacity, perspective, displayPanel } = this.state,
+    var { x, y, z, zoom, zoomRange, opacity, perspective, displayPanel, isTuckedAway } = this.state,
       cubeStyle = { transform: `translateZ(${zoom}px) rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)` },
       containerStyle = { perspective: `${perspective}px` },
       surfaceStyle = { opacity: opacity / 100 }
 
-    // if (this.props.isLoggedIn != this.isLoggedIn) {
-    //   this.setIsLoggedIn(this.props.isLoggedIn);
-    //   if (this.isLoggedIn) {
-    //     this.LoggedInPosition();
-    //   } else {
-    //     this.initialPosition();
-    //   }
-    // }
-
     return (
-      <div className="wrapper loginRegistration">
+      <div className={`wrapper loginRegistration ${isTuckedAway ? 'tuckedAway' : 'notTuckedAway'}`}>
+      <div className="backDrop" onClick={this.initialPosition.bind(this)}></div>
         <div className="container" style={containerStyle}>
           <div className={displayPanel ? 'cube' : 'cube animated'} style={cubeStyle}>
             <figure className={'loginContainer'} style={surfaceStyle} onClick={this.LoggingInPosition.bind(this)}><div>Login</div>

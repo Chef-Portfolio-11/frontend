@@ -18,7 +18,7 @@ html{
 .navbar-container h2{
   font-size: 3rem;
   margin: 1rem 2rem;
-  color: #07FE20;
+  color: #1e9442;
 }
 
 .logo{
@@ -38,8 +38,8 @@ html{
   margin: auto 2rem;
   padding: 1rem;
   text-decoration: none;
-  color: #2F2D2D;
-  background-color: #07FE20;
+  color: rgb(226, 216, 216);
+  background-color: #1e9442;
   border-radius: 10px;
   font-size: 1.8rem;
 }
@@ -73,12 +73,6 @@ body {
 	font-family: 'Roboto Mono', monospace;
 	user-select: none;
 	color: #e6e7e8;
-}
-.wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
 }
 .inputs {
 	background: rgba(255, 255, 255, 0.03);
@@ -144,17 +138,17 @@ body {
 	position: relative;
 	width: 500px;
 	height: 500px;
-	transition: perspective 300ms ease;
+	transition: perspective 1s;
 }
 .cube {
 	height: 100%;
 	width: 100%;
 	position: absolute;
 	transform-style: preserve-3d;
-	transition: transform 300ms ease;
+	transition: transform 2s;
 }
 .cube.animated {
-	transition-duration: 500ms;
+	transition-duration: 1s;
 }
 .cube figure {
 	position: absolute;
@@ -317,3 +311,37 @@ input{
     border-radius: 10px;
 }
 
+.tuckedAway {
+	top: -220px;
+}
+.notTuckedAway {
+	top: 75px;
+}
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* height: 100vh; */
+	position: absolute;
+	transition: all 1s;
+	right: 50px;
+}
+
+.wrapper.notTuckedAway .backDrop {
+	height: 100vh;
+	left: 0px;
+	opacity: 60%;
+}
+.wrapper.tuckedAway .backDrop {
+	height: 0px;
+	right: 0px;
+	opacity: 0%;
+}
+.wrapper .backDrop {
+	position: fixed;
+	height: 0px;
+	width: 100vw;
+	top: 0px;
+	background: black;
+	transition: opacity 2s;
+}
