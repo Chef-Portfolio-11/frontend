@@ -21,19 +21,27 @@ function App() {
   if (isLoggedIn === undefined) setIsLoggedIn(true);
   const [myChefId, setmyChefId] = useState();
   if (myChefId === undefined) setmyChefId(1);
+  const userHasChanged = function () {
+    setmyChefId(localStorage.getItem('userId'));
+    if (myChefId === undefined) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  }
   return (
     <div className="App">
       <Router>
-        <Navigation />
+        <Navigation isLoggedIn={isLoggedIn} userHasChanged={userHasChanged}/>
         <Switch>
           {/* Routes */}
-          {isLoggedIn?<Route path='/' render={(props) => <ChefDashboard {...props} chefid={myChefId} />} />:<Route exact path='/' component={RecipeList} />}
-          
+          {isLoggedIn ? <Route path='/' render={(props) => <ChefDashboard {...props} chefid={myChefId} />} /> : <Route exact path='/' component={RecipeList} />}
+
           <Route path='/register' component={NewUserForm} />
           <Route path='/Profiles' component={Profiles} />
           <Route path='/MyRecipesOld' component={RecipesByChef} />
           <Route path='/CubeTest' component={Cube} />
-          
+
           <Route path='/profiles' component={Profiles} />
           <Route path="/create-recipe" render={() => {
             return <CreateRecipe />

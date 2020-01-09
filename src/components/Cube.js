@@ -14,7 +14,8 @@ class LoginRegistration extends React.Component {
       perspective: 700,
       zoomRange: [-1500, 0],
       displayPanel: false,
-      isTuckedAway: true
+      isTuckedAway: true,
+      isLoggedIn: false
     }
   }
 
@@ -38,26 +39,30 @@ class LoginRegistration extends React.Component {
   initialPosition() {
     this.setState({
       x: 0, y: -45, z: 0,
-      zoom: -800, isTuckedAway: true
+      zoom: -800, isTuckedAway: true,
+      isLoggedIn: this.props.isLoggedIn
     });
     console.log('tucking away', this.state.isTuckedAway);
   }
   LoggedInPosition() {
     this.setState({
       x: 0, y: 90, z: 0,
-      zoom: -800, isTuckedAway: true
+      zoom: -800, isTuckedAway: true,
+      isLoggedIn: this.props.isLoggedIn
     })
   }
   RegisteringPosition() {
     this.setState({
       x: -90, y: 0, z: 0,
-      zoom: -0, isTuckedAway: false
+      zoom: -0, isTuckedAway: false,
+      isLoggedIn: this.props.isLoggedIn
     })
   }
   LoggingInPosition() {
     this.setState({
       x: 90, y: 0, z: 0,
-      zoom: -0, isTuckedAway: false
+      zoom: -0, isTuckedAway: false,
+      isLoggedIn: this.props.isLoggedIn
     })
   }
   processLogin() {
@@ -69,6 +74,17 @@ class LoginRegistration extends React.Component {
       cubeStyle = { transform: `translateZ(${zoom}px) rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)` },
       containerStyle = { perspective: `${perspective}px` },
       surfaceStyle = { opacity: opacity / 100 }
+
+      // if (this.props.isLoggedIn !== this.state.isLoggedIn){
+      //   if (this.props.isLoggedIn) {
+      //     this.LoggedInPosition();
+      //   }
+      //   this.setState(prevState => ({
+      //     isLoggedIn: {
+
+      //     }
+      //   }), 'isLoggedIn': this.props.isLoggedIn)
+      // }
 
     return (
       <div className={`wrapper loginRegistration ${isTuckedAway ? 'tuckedAway' : 'notTuckedAway'}`}>

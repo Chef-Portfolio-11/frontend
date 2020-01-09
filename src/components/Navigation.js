@@ -17,7 +17,7 @@ const Navigation = props => {
                     </>
                 }
             </nav>
-            <Cube />
+            <Cube isLoggedIn={props.isLoggedIn} userHasChanged={props.userHasChanged}/>
         </div>
     )
 }
