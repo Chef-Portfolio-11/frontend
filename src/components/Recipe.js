@@ -11,6 +11,7 @@ const Recipe = props => {
             <p>{props.recipe.ingredient_name}</p>
             <p>Instructions:</p>
             <p>{props.recipe.instructions}</p>
+            {props.chefid !== undefined ?<button>Delete Recipe</button>:''}
         </div>
     )
 }
