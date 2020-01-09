@@ -2,7 +2,7 @@ import React from 'react'
 
 const Recipe = props => {
     return(
-        <div className='recipe' id={props.id}>
+        <div className='recipe' id={props.recipe.id}>
             <img src='https://picsum.photos/200' alt='food, hopefully' />
             <h2>{props.recipe.title}</h2>
             <p>{props.recipe.meal_type}</p>

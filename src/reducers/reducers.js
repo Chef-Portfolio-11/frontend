@@ -20,6 +20,9 @@ import {
     SUBMIT_RECIPE_START,
     SUBMIT_RECIPE_SUCCESS,
     SUBMIT_RECIPE_FAILURE,
+    UPDATE_RECIPE_START,
+    UPDATE_RECIPE_SUCCESS,
+    UPDATE_RECIPE_FAILURE,
     DELETE_RECIPE_START,
     DELETE_RECIPE_SUCCESS,
     DELETE_RECIPE_FAILURE
@@ -191,6 +194,24 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
                 isPosting: false
+            }
+        case UPDATE_RECIPE_START:
+            return {
+                ...state,
+                isEditing: true,
+                recipeToEdit: action.payload,
+            }
+        case UPDATE_RECIPE_SUCCESS:
+            return {
+                ...state,
+                isEditing: false,
+                recipeToEdit: null,
+            }
+        case UPDATE_RECIPE_FAILURE:
+            return {
+                ...state,
+                isEditing: false,
+                error: action.payload
             }
         case DELETE_RECIPE_START:
             return {
