@@ -76,7 +76,7 @@ export default function CreateRecipe(props) {
             description: "",
             ingredient_name: [],
             instructions: "",
-            user_id: 0
+            user_id: localStorage.getItem('userId')
         },
         addNew: false,
         item: ""
@@ -91,12 +91,12 @@ export default function CreateRecipe(props) {
             recipe: {
                 ...recipe.recipe,
                 id: Date.now(),
-                ingredient_name: Object.values(ingredient)
+                ingredient_name: Object.values(ingredient).join('')
             }
         })
 
         submitRecipe(recipe);
-        props.history.push('/profile')
+        // props.history.push('/profile')
 
         console.log(recipe.recipe);
     }
@@ -261,3 +261,5 @@ export default function CreateRecipe(props) {
         </div>
     )
 }
+
+// connect to redux

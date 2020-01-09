@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import Profile from './Profile';
 import RecipesByChef from "./RecipesByChef";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const ChefDashboard = (props) => {
     const [chefData, setChefData] = useState();
     const getProfiles = () => {
-        axios
-            .get('https://bw-chef-portfolio.herokuapp.com/api/user')
+        axiosWithAuth()
+        // not currently working, need users endpoint, needs to use axiosWithAuth
+            .get(`/user/${5}`)
             .then(res => {
                 console.log(res, 'got data!');
 
-                setChefData(res.data.filter(function (e) {
-                    return e.id === props.chefid
-                }));
+                setChefData(res.data);
             })
             .catch(err => {
                 console.log('error getting chef data;', err)
             })
     }
+
+    // need another axios get for a specific chef's recipes
 
     useEffect(() => {
         setChefData(getProfiles(1));
@@ -31,12 +32,11 @@ const ChefDashboard = (props) => {
     return (
         <div className='ChefDashboard'>
             <div className='prof'>
-                {
-                    chefData.map((e, id) => (<Profile key={id} myChef={e} />))
-                }
+                 <Profile key={chefData.id} myChef={chefData} />
             </div>
             <RecipesByChef chefid={props.chefid}/>
         </div>
+        // buttons for create recipe and edit recipe
     )
 }
 export default ChefDashboard;
