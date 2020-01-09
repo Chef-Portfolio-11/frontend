@@ -20,7 +20,7 @@ function Login(props) {
 
   return (
     <div className="Login">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <FormGroup controlId="username" bsSize="large">
           <FormLabel>username</FormLabel>
           <FormControl
