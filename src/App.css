@@ -6,6 +6,11 @@ html{
   text-align: center;
 }
 
+h2{
+	color: black;
+	font-size: 1rem;
+}
+
 .navbar-container{
   display: flex;
   flex-direction: row;
@@ -215,9 +220,9 @@ form{
 
 input{
 	margin: 0.1rem auto;
-	width: 80%;
-	padding: 0.5rem;
-	font-size: 1.6rem;
+	width: 85%;
+	padding: 0.25rem;
+	font-size: 1.4rem;
 	border-radius: 10px;
 }
 
@@ -225,7 +230,7 @@ input{
 	margin: auto;
 	width: 33%;
 	padding: 0.25rem;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	border-radius: 10px;
 }
 
@@ -249,11 +254,16 @@ input{
 .recipe{
 	background-color: #C4C4C4;
 	color: black;
-	width: 30%;
+	width: 25rem;
 	margin: 1rem;
 	padding: 1rem;
 	border-radius: 10px;
 }
+
+.recipe img{
+	border-radius: 10px;
+}
+
 @media all and (min-width: 480px) {
 	.Login {
 	  padding: 60px 0;
@@ -275,5 +285,22 @@ input{
 
 .recipe p{
 	font-size: 1.4rem;
+}
+
+.Profile {
+	height: 200px;
+	width: 400px;
+	border: 1px solid black;
+	font-size: 3em;
+	padding: 15px;
+	margin: 20px;	
+	box-shadow: 5px 5px 5px 3px black;
+	background: #1234;
+	border-radius: 10px;
+}
+
+.prof {
+	display: flex;
+	flex-wrap: wrap;
 }
 
