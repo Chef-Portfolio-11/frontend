@@ -16,11 +16,7 @@ class LoginRegistration extends React.Component {
       displayPanel: false,
       isTuckedAway: true
     }
-    // this.onMouseMove = this.onMouseMove.bind(this)
-    // const [isLoggesIn, setIsLoggedIn] = useState([]);
-    // setIsLoggedIn(this.props.isLoggedIn);
   }
-
 
   componentDidMount() {
     //   document.addEventListener('mousemove', this.onMouseMove)
@@ -64,12 +60,6 @@ class LoginRegistration extends React.Component {
       zoom: -0, isTuckedAway: false
     })
   }
-  // onMouseMove(e) {
-  //   if (!this.state.displayPanel) {
-  //     var hh = window.innerHeight / 2, hw = window.innerWidth / 2
-  //     this.setState({ x: (hh - e.clientY) / hh * 90, y: (e.clientX - hw) / hw * 90, z: 0 })
-  //   }
-  // }
   processLogin() {
     this.LoggedInPosition().bind(this);
   }

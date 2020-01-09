@@ -237,15 +237,17 @@ input{
 	flex-wrap: wrap;
 	margin: auto;
 	justify-content: space-around;
+	background: cadetblue;
 }
 
 .recipe{
-	background-color: #C4C4C4;
-	color: black;
-	width: 25rem;
+	background-color: rgb(35, 82, 121);
+	color: rgb(255, 255, 255);
+	width: 30%;
 	margin: 1rem;
 	padding: 1rem;
 	border-radius: 10px;
+	box-shadow: 4px 4px 4px 2px black;
 }
 
 .recipe img{

@@ -31,13 +31,13 @@ function App() {
           <Route path='/register' component={NewUserForm} />
           <Route path='/Profiles' component={Profiles} />
           <Route path='/MyRecipesOld' component={RecipesByChef} />
-          <Route path= '/CubeTest' component= {Cube} />
+          <Route path='/CubeTest' component={Cube} />
           <Route path='/MyRecipes' render={(props) => <RecipesByChef {...props} chefid={2} />}
-/>
-
+          />
+          <Route path='/profiles' component={Profiles} />
           <Route path="/create-recipe" render={() => {
             return <CreateRecipe />
-          }}/>
+          }} />
           <Route path='/login' component={Cube} />
           {/* <Route path='/login' component={Login} />
           <Route path='/register' component={NewUserForm} /> */}

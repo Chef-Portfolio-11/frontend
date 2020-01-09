@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogOut } from '../actions/actions'
+import Cube from './Cube'
 
 const Navigation = props => {
 
@@ -12,10 +13,11 @@ const Navigation = props => {
                 {props.isLoggedIn ? 
                     <NavLink className='nav-btn' to='/' onClick={props.handleLogOut}>Log Out</NavLink> : 
                     <>
-                    <NavLink className='nav-btn' to='/login'>Log In</NavLink>
+                        <NavLink className='nav-btn' to='/login'>Log In</NavLink>
                     </>
                 }
             </nav>
+            <Cube />
         </div>
     )
 }
