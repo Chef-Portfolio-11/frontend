@@ -10,8 +10,8 @@ const Navigation = props => {
         <div className='navbar-container'>
             <NavLink className='logo' to='/'><h2>Chef<span className='highlight'>Port</span>.</h2></NavLink>
             <nav className='navbar'>
-                {props.isLoggedIn ?
-                    <NavLink className='nav-btn' to='/' onClick={props.handleLogOut()}>Log Out</NavLink> :
+                {props.isLoggedIn ? 
+                    <NavLink className='nav-btn' to='/' onClick={props.handleLogOut}>Log Out</NavLink> : 
                     <>
                         <NavLink className='nav-btn' to='/login'>Log In</NavLink>
                     </>
