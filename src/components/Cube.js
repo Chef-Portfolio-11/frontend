@@ -9,7 +9,7 @@ class LoginRegistration extends React.Component {
       x: 0,
       y: -45,
       z: 0,
-      zoom: -100,
+      zoom: -800,
       opacity: 100,
       perspective: 700,
       zoomRange: [-1500, 0],
@@ -41,13 +41,13 @@ class LoginRegistration extends React.Component {
   initialPosition() {
     this.setState({
       x: 0, y: -45, z: 0,
-      zoom: -100
+      zoom: -800
     })
   }
   LoggedInPosition() {
     this.setState({
       x: 0, y: 90, z: 0,
-      zoom: -100
+      zoom: -800
     })
   }
   RegisteringPosition() {
@@ -97,14 +97,13 @@ class LoginRegistration extends React.Component {
             <figure className={'logoutContainer'} style={surfaceStyle} onClick={this.initialPosition.bind(this)}><div>Logout</div></figure>
             <figure className={'registerContainer'} style={surfaceStyle} onClick={this.RegisteringPosition.bind(this)}><div>Register</div></figure>
             <figure className={'registrationFormPanel'} style={surfaceStyle}>
+              <div className='cancelButtonContainer'><button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>X</button></div>
               <NewUserForm />
-              <br />
-              <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
             <figure className={'loginFormPanel'} style={surfaceStyle}>
-              <div><Login /></div>
               <button className={'submit cube-button'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
-              <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
+              <div className='cancelButtonContainer'><button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>X</button></div>
+              <Login />
             </figure>
             {/* {Array(6).fill().map(() => <figure style={surfaceStyle} />)} */}
           </div>

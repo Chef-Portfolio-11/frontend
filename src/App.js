@@ -3,7 +3,7 @@ import Cube from './components/Cube';
 import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Navigation from './components/Navigation';
 import NewUserForm from './components/NewUserForm';
-import RecipeCard from './components/RecipeCard';
+import RecipesByChef from './components/RecipesByChef';
 import Routes from "./Routes";
 
 // import recipeData from '../data/recipes.json';
@@ -25,8 +25,10 @@ function App() {
           <Route exact path='/' component={RecipeList} />
           <Route path='/register' component={NewUserForm} />
           <Route path='/Profiles' component={Profiles} />
-          
-          {/* <Route path= '/login' component= {LoginRegistration} /> */}
+          <Route path='/MyRecipesOld' component={RecipesByChef} />
+          <Route path= '/CubeTest' component= {Cube} />
+          <Route path='/MyRecipes' render={(props) => <RecipesByChef {...props} chefid={2} />}
+/>
           
         </Switch>
       </Router>
