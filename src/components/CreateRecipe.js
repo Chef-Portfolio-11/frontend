@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
-import axios from "axios";
 
 const Input = styled.input`
     margin: 0.25rem auto;
@@ -69,13 +68,13 @@ export default function CreateRecipe() {
 
     const [recipe, setRecipe] = useState({
         recipe: {
-            id: 0,
+            id: new Date(),
             title: "",
             meal_type: "Breakfast",
             description: "",
             ingredient_name: [],
             instructions: "",
-            user_id: 0
+            user_id: 1
         },
         addNew: false,
         item: ""
@@ -93,8 +92,6 @@ export default function CreateRecipe() {
                 ingredient_name: Object.values(ingredient)
             }
         })
-
-        console.log(recipe.recipe);
     }
 
     const addIngredient = e => {
