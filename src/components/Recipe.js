@@ -2,6 +2,7 @@ import React from 'react'
 
 const Recipe = props => {
     return(
+
         <div className='recipe-card'>
             <div className='recipe' id={props.recipe.id}>
                 <img src='https://picsum.photos/200' alt='food, hopefully' />
@@ -19,6 +20,7 @@ const Recipe = props => {
                 <button className='edit-btn'>Edit</button>
                 <button className='delete-btn'>Delete</button>
             </div>
+
         </div>
         
     )
