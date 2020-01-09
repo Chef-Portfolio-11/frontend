@@ -1,6 +1,11 @@
 import React from 'react';
+import CreateRecipe from "./components/CreateRecipe";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom";
 import Cube from './components/Cube';
-import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Navigation from './components/Navigation';
 import NewUserForm from './components/NewUserForm';
 import RecipesByChef from './components/RecipesByChef';
@@ -30,6 +35,14 @@ function App() {
           <Route path='/MyRecipes' render={(props) => <RecipesByChef {...props} chefid={2} />}
 />
           
+          <Route path='/profiles' component={Profiles} />
+          <Route path="/create-recipe" render={() => {
+            return <CreateRecipe />
+          }}/>
+          <Route path='/login' component={Cube} />
+          {/* <Route path='/login' component={Login} />
+          <Route path='/register' component={NewUserForm} /> */}
+          <PrivateRoute path='/protected' component={Profiles} />
         </Switch>
       </Router>
     </div>
