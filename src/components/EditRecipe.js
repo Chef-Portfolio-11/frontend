@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
-import axios from "axios";
-import { submitRecipe } from "../actions/actions";
+import { submitRecipe, updateRecipe } from "../actions/actions";
 
 const Input = styled.input`
     margin: 0.25rem auto;
@@ -66,7 +65,7 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function CreateRecipe() {
+export default function EditRecipe() {
 
     const [recipe, setRecipe] = useState({
         recipe: {
@@ -96,7 +95,7 @@ export default function CreateRecipe() {
         })
 
         submitRecipe(recipe);
-        // props.history.push('/profile')
+        props.history.push('/profile')
 
         console.log(recipe.recipe);
     }
@@ -256,7 +255,7 @@ export default function CreateRecipe() {
 
             <textarea onChange={recInst} placeholder="Instructions..." />
 
-            <button onClick={addRecipe}>Add Recipe</button>
+            <button onClick={updateRecipe}>Update Recipe</button>
         </Form>
         </div>
     )
