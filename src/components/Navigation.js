@@ -30,6 +30,7 @@ const Navigation = () => {
                     </>
                 }
                 </nav>
+                <Cube />
             </div>
             {/* <Cube isLoggedIn={true}  /> */}
         </div>
