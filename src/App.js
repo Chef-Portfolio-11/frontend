@@ -8,7 +8,7 @@ import {
 import Cube from './components/Cube';
 import Navigation from './components/Navigation';
 import NewUserForm from './components/NewUserForm';
-import RecipeCard from './components/RecipeCard';
+import RecipesByChef from './components/RecipesByChef';
 import Routes from "./Routes";
 
 // import recipeData from '../data/recipes.json';
@@ -28,7 +28,13 @@ function App() {
         <Switch>
           {/* Routes */}
           <Route exact path='/' component={RecipeList} />
-          {/* <Route path='/profiles' component={Profiles} /> */}
+          <Route path='/register' component={NewUserForm} />
+          <Route path='/Profiles' component={Profiles} />
+          <Route path='/MyRecipesOld' component={RecipesByChef} />
+          <Route path= '/CubeTest' component= {Cube} />
+          <Route path='/MyRecipes' render={(props) => <RecipesByChef {...props} chefid={2} />}
+/>
+
           <Route path="/create-recipe" render={() => {
             return <CreateRecipe />
           }}/>
