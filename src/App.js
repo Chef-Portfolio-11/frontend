@@ -9,15 +9,11 @@ import Cube from './components/Cube';
 import Navigation from './components/Navigation';
 import NewUserForm from './components/NewUserForm';
 import RecipesByChef from './components/RecipesByChef';
-import Routes from "./Routes";
-
-// import recipeData from '../data/recipes.json';
-
 import RecipeList from './components/RecipeList'
 import './App.css'
 import PrivateRoute from './components/PrivateRoute';
 import Profiles from './components/Profiles';
-import Login from './components/Login'
+import ChefDashboard from './components/ChefDashboard';
 
 
 function App() {
@@ -31,7 +27,7 @@ function App() {
         <Navigation />
         <Switch>
           {/* Routes */}
-          {isLoggedIn?<Route path='/' render={(props) => <RecipesByChef {...props} chefid={myChefId} />} />:<Route exact path='/' component={RecipeList} />}
+          {isLoggedIn?<Route path='/' render={(props) => <ChefDashboard {...props} chefid={myChefId} />} />:<Route exact path='/' component={RecipeList} />}
           
           <Route path='/register' component={NewUserForm} />
           <Route path='/Profiles' component={Profiles} />
