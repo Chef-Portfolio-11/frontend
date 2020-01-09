@@ -29,7 +29,7 @@ const RecipesByChef = props => {
     return (
         <div className='prof'>
         {
-            recipeData.map((e, id) => (<Recipe key={id} recipe={e} />))
+            recipeData.map((e, id) => (<Recipe key={id} recipe={e} chefid={props.chefid} />))
         }
         </div>
     )
