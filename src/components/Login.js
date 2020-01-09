@@ -11,7 +11,7 @@ function Login(props) {
     return username.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  function handleLogin(event) {
     event.preventDefault();
     console.log('clicked')
     props.handleLogin(username, password)
@@ -38,9 +38,15 @@ function Login(props) {
             type="password"
           />
         </FormGroup>
-        <Button block bsSize="large" disabled={!validateForm()} type="submit">
+        {/* <Button block bsSize="large" disabled={!validateForm()} type="submit">
           Login
-        </Button>
+        </Button> */}
+
+        <button className='submit-btn' onClick={e => {
+                e.preventDefault();
+                props.handleLogin(props.inputValues);
+            }}>Log In</button>
+
       </form>
     </div>
   );

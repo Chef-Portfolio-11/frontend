@@ -9,13 +9,14 @@ class LoginRegistration extends React.Component {
       x: 0,
       y: -45,
       z: 0,
-      zoom: -100,
+      zoom: -800,
       opacity: 100,
       perspective: 700,
       zoomRange: [-1500, 0],
-      displayPanel: false
+      displayPanel: false,
+      isTuckedAway: true
     }
-    this.onMouseMove = this.onMouseMove.bind(this)
+    // this.onMouseMove = this.onMouseMove.bind(this)
     // const [isLoggesIn, setIsLoggedIn] = useState([]);
     // setIsLoggedIn(this.props.isLoggedIn);
   }
@@ -41,54 +42,47 @@ class LoginRegistration extends React.Component {
   initialPosition() {
     this.setState({
       x: 0, y: -45, z: 0,
-      zoom: -100
-    })
+      zoom: -800, isTuckedAway: true
+    });
+    console.log('tucking away', this.state.isTuckedAway);
   }
   LoggedInPosition() {
     this.setState({
       x: 0, y: 90, z: 0,
-      zoom: -100
+      zoom: -800, isTuckedAway: true
     })
   }
   RegisteringPosition() {
     this.setState({
       x: -90, y: 0, z: 0,
-      zoom: -0
+      zoom: -0, isTuckedAway: false
     })
   }
   LoggingInPosition() {
     this.setState({
       x: 90, y: 0, z: 0,
-      zoom: -0
+      zoom: -0, isTuckedAway: false
     })
   }
-  onMouseMove(e) {
-    if (!this.state.displayPanel) {
-      var hh = window.innerHeight / 2, hw = window.innerWidth / 2
-      this.setState({ x: (hh - e.clientY) / hh * 90, y: (e.clientX - hw) / hw * 90, z: 0 })
-    }
-  }
+  // onMouseMove(e) {
+  //   if (!this.state.displayPanel) {
+  //     var hh = window.innerHeight / 2, hw = window.innerWidth / 2
+  //     this.setState({ x: (hh - e.clientY) / hh * 90, y: (e.clientX - hw) / hw * 90, z: 0 })
+  //   }
+  // }
   processLogin() {
     this.LoggedInPosition().bind(this);
   }
 
   render() {
-    var { x, y, z, zoom, zoomRange, opacity, perspective, displayPanel } = this.state,
+    var { x, y, z, zoom, zoomRange, opacity, perspective, displayPanel, isTuckedAway } = this.state,
       cubeStyle = { transform: `translateZ(${zoom}px) rotateX(${x}deg) rotateY(${y}deg) rotateZ(${z}deg)` },
       containerStyle = { perspective: `${perspective}px` },
       surfaceStyle = { opacity: opacity / 100 }
 
-    // if (this.props.isLoggedIn != this.isLoggedIn) {
-    //   this.setIsLoggedIn(this.props.isLoggedIn);
-    //   if (this.isLoggedIn) {
-    //     this.LoggedInPosition();
-    //   } else {
-    //     this.initialPosition();
-    //   }
-    // }
-
     return (
-      <div className="wrapper loginRegistration">
+      <div className={`wrapper loginRegistration ${isTuckedAway ? 'tuckedAway' : 'notTuckedAway'}`}>
+      <div className="backDrop" onClick={this.initialPosition.bind(this)}></div>
         <div className="container" style={containerStyle}>
           <div className={displayPanel ? 'cube' : 'cube animated'} style={cubeStyle}>
             <figure className={'loginContainer'} style={surfaceStyle} onClick={this.LoggingInPosition.bind(this)}><div>Login</div>
@@ -97,14 +91,13 @@ class LoginRegistration extends React.Component {
             <figure className={'logoutContainer'} style={surfaceStyle} onClick={this.initialPosition.bind(this)}><div>Logout</div></figure>
             <figure className={'registerContainer'} style={surfaceStyle} onClick={this.RegisteringPosition.bind(this)}><div>Register</div></figure>
             <figure className={'registrationFormPanel'} style={surfaceStyle}>
+              <div className='cancelButtonContainer'><button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>X</button></div>
               <NewUserForm />
-              <br />
-              <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
             </figure>
             <figure className={'loginFormPanel'} style={surfaceStyle}>
-              <div><Login /></div>
               <button className={'submit cube-button'} onClick={this.LoggedInPosition.bind(this)}>Submit</button>
-              <button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>Cancel</button>
+              <div className='cancelButtonContainer'><button className={'cancel cube-button'} onClick={this.initialPosition.bind(this)}>X</button></div>
+              <Login />
             </figure>
             {/* {Array(6).fill().map(() => <figure style={surfaceStyle} />)} */}
           </div>
