@@ -2,9 +2,15 @@ import {
     FETCH_DATA_START,
     FETCH_DATA_SUCCESS,
     FETCH_DATA_FAILURE,
-    POST_DATA_START,
-    POST_DATA_SUCCESS,
-    POST_DATA_FAILURE,
+    REGISTER_START,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE,
+    LOG_IN_START,
+    LOG_IN_SUCCESS,
+    LOG_IN_FAILURE,
+    LOG_OUT_START,
+    LOG_OUT_SUCCESS,
+    LOG_OUT_FAILURE,
     HANDLE_NAME,
     HANDLE_EMAIL,
     HANDLE_USERNAME,
@@ -19,7 +25,8 @@ const initialState = {
     isLoggedIn: false,
     error: '',
     inputValues: {
-        name: '',
+        id: null,
+        full_name: '',
         email: '',
         username: '',
         password: '',
@@ -55,7 +62,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 inputValues: {
                     ...state.inputValues,
-                    name: action.payload
+                    full_name: action.payload
                 }
             };
         case HANDLE_EMAIL:
@@ -98,27 +105,68 @@ const reducer = (state = initialState, action) => {
                     business_email: action.payload
                 }
             }
-        case POST_DATA_START:
+        case REGISTER_START:
             return {
                 ...state,
                 isPosting: true,
             };
-        case POST_DATA_SUCCESS:
+        case REGISTER_SUCCESS:
             return {
                 ...state,
                 isPosting: false,
                 inputValues: {
-                    name: '',
+                    id: null,
+                    full_name: '',
                     email: '',
                     username: '',
                     password: '',
+                    business_phone: '',
+                    business_email: '',
                 },
             }
-        case POST_DATA_FAILURE:
+        case REGISTER_FAILURE:
             return {
                 ...state,
                 isPosting: false,
                 error: action.payload
+            }
+        case LOG_IN_START:
+            return {
+                ...state,
+                isPosting: true,
+            }
+        case LOG_IN_SUCCESS:
+            return {
+                ...state,
+                isPosting: false,
+                isLoggedIn: true,
+                inputValues: {
+                    username: '',
+                    password: '',
+                }
+            }
+        case LOG_IN_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isPosting: false
+            }
+        case LOG_OUT_START:
+            return {
+                ...state,
+                isPosting: true,
+            }
+        case LOG_OUT_SUCCESS:
+            return {
+                ...state,
+                isPosting: false,
+                isLoggedIn: false,
+            }
+        case LOG_OUT_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isPosting: false
             }
         default:
             return state;

@@ -34,8 +34,7 @@ function App() {
           <Route path= '/CubeTest' component= {Cube} />
           <Route path='/MyRecipes' render={(props) => <RecipesByChef {...props} chefid={2} />}
 />
-          
-          <Route path='/profiles' component={Profiles} />
+
           <Route path="/create-recipe" render={() => {
             return <CreateRecipe />
           }}/>
