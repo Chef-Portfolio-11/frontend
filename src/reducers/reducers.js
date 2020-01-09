@@ -36,7 +36,6 @@ const initialState = {
     isDeleting: false,
     error: '',
     inputValues: {
-        id: null,
         full_name: '',
         email: '',
         username: '',

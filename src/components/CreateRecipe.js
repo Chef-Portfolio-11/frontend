@@ -96,7 +96,7 @@ export default function CreateRecipe() {
         })
 
         submitRecipe(recipe);
-        props.history.push('/profile')
+        // props.history.push('/profile')
 
         console.log(recipe.recipe);
     }

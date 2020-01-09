@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { handleLogin } from "../actions/actions";
+import { connect } from "react-redux";
 
-export default function Login(props) {
+function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,7 +13,9 @@ export default function Login(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    handleLogin(username, password)
+    console.log('clicked')
+    props.handleLogin(username, password)
+    console.log(username, password)
   }
 
   return (
@@ -42,3 +45,15 @@ export default function Login(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+    return {
+        inputvalues: state.inputvalues,
+        isPosting: state.isPosting
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { handleLogin }
+)(Login)

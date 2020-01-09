@@ -1,5 +1,4 @@
 import axiosWithAuth from '../utils/axiosWithAuth';
-import { push } from 'react-router-redux';
 
 export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
@@ -99,10 +98,12 @@ export const handleLogin = (username, password) => dispatch => {
         username: username,
         password: password
     }
+    console.log(user)
     
     axiosWithAuth()
     .post(`/auth/login`, user)
     .then(res => {
+        console.log(res.data)
         dispatch({ type: LOG_IN_SUCCESS, payload: res.data})
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('userId', res.data[0].id)
