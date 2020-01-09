@@ -11,16 +11,18 @@ function Login(props) {
     return username.length > 0 && password.length > 0;
   }
 
-  function handleLogin(event) {
+//   needs to redirect to protected route after login
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log('clicked')
     props.handleLogin(username, password)
     console.log(username, password)
+    // props.history.push('/protected')
   }
 
   return (
     <div className="Login">
-      <form onSubmit={handleLogin}>
+      <form>
         <FormGroup controlId="username" bsSize="large">
           <FormLabel>username</FormLabel>
           <FormControl
@@ -42,10 +44,7 @@ function Login(props) {
           Login
         </Button> */}
 
-        <button className='submit-btn' onClick={e => {
-                e.preventDefault();
-                props.handleLogin(props.inputValues);
-            }}>Log In</button>
+        <button className='submit-btn' onClick={handleSubmit}>Log In</button>
 
       </form>
     </div>

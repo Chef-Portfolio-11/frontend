@@ -106,7 +106,7 @@ export const handleLogin = (username, password) => dispatch => {
         console.log(res.data)
         dispatch({ type: LOG_IN_SUCCESS, payload: res.data})
         localStorage.setItem('token', res.data.token)
-        localStorage.setItem('userId', res.data[0].id)
+        localStorage.setItem('userId', res.data.id)
         
     })
     .catch(err => {
@@ -116,19 +116,12 @@ export const handleLogin = (username, password) => dispatch => {
 
 export const handleLogOut = () => dispatch => {
     dispatch({ type: LOG_OUT_START })
-    axiosWithAuth()
-        .post('/auth/logout')
-        .then(res => {
-            dispatch({ type: LOG_OUT_SUCCESS })
-            localStorage.removeItem('token')
-            localStorage.removeItem('userId', res.data[0].id)
-            console.log(res, 'Logged out!')
-            
-        })
-        .catch(err => {
-            dispatch({ type: LOG_OUT_FAILURE, payload: err.response })
-            console.log('error logging out;', err)
-        })
+    
+    dispatch({ type: LOG_OUT_SUCCESS })
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    console.log('Logged out!')
+    
 }
 
 export const submitRecipe = data => dispatch => {

@@ -65,17 +65,17 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function EditRecipe() {
+export default function EditRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
-            id: 0,
-            title: "",
-            meal_type: "Breakfast",
-            description: "",
-            ingredient_name: [],
-            instructions: "",
-            user_id: 0
+            id: props.recipe.id,
+            title: props.recipe.title,
+            meal_type: props.recipe.meal_type,
+            description: props.recipe.description,
+            ingredient_name: props.recipe.ingredient_name,
+            instructions: props.recipe.instructions,
+            user_id: props.recipe.user_id
         },
         addNew: false,
         item: ""

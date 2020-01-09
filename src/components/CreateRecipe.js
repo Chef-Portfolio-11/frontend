@@ -66,7 +66,7 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function CreateRecipe() {
+export default function CreateRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
@@ -76,7 +76,7 @@ export default function CreateRecipe() {
             description: "",
             ingredient_name: [],
             instructions: "",
-            user_id: 0
+            user_id: localStorage.getItem('userId')
         },
         addNew: false,
         item: ""
@@ -91,7 +91,7 @@ export default function CreateRecipe() {
             recipe: {
                 ...recipe.recipe,
                 id: Date.now(),
-                ingredient_name: Object.values(ingredient)
+                ingredient_name: Object.values(ingredient).join('')
             }
         })
 
@@ -261,3 +261,5 @@ export default function CreateRecipe() {
         </div>
     )
 }
+
+// connect to redux
