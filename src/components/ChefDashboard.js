@@ -8,7 +8,7 @@ const ChefDashboard = (props) => {
     const getProfiles = () => {
         axiosWithAuth()
         // not currently working, need users endpoint, needs to use axiosWithAuth
-            .get(`/user/${5}`)
+            .get(`/user/${localStorage.getItem('userId')}`)
             .then(res => {
                 console.log(res, 'got data!');
 
