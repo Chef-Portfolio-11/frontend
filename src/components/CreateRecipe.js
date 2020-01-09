@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
 import axios from "axios";
+import { submitRecipe } from "../actions/actions";
 
 const Input = styled.input`
     margin: 0.25rem auto;
@@ -89,10 +90,13 @@ export default function CreateRecipe() {
             ...recipe,
             recipe: {
                 ...recipe.recipe,
-                id: new Date(),
+                id: Date.now(),
                 ingredient_name: Object.values(ingredient)
             }
         })
+
+        submitRecipe(recipe);
+        props.history.push('/profile')
 
         console.log(recipe.recipe);
     }

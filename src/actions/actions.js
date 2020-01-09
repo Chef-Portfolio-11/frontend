@@ -20,6 +20,15 @@ export const HANDLE_PASSWORD = 'HANDLE_PASSWORD';
 export const HANDLE_PHONE = 'HANDLE_PHONE';
 export const HANDLE_BIZ_EMAIL = 'HANDLE_BIZ_EMAIL';
 export const HANDLE_SUBMIT_USER = 'HANDLE_SUBMIT_USER';
+export const SUBMIT_RECIPE_START = 'SUBMIT_RECIPE_START';
+export const SUBMIT_RECIPE_SUCCESS = 'SUBMIT_RECIPE_SUCCESS';
+export const SUBMIT_RECIPE_FAILURE = 'SUBMIT_RECIPE_FAILURE';
+export const UPDATE_RECIPE_START = 'UPDATE_RECIPE_START';
+export const UPDATE_RECIPE_SUCCESS = 'UPDATE_RECIPE_SUCCESS';
+export const UPDATE_RECIPE_FAILURE = 'UPDATE_RECIPE_FAILURE';
+export const DELETE_RECIPE_START = 'DELETE_RECIPE_START';
+export const DELETE_RECIPE_SUCCESS = 'DELETE_RECIPE_SUCCESS';
+export const DELETE_RECIPE_FAILURE = 'DELETE_RECIPE_FAILURE';
 
 export const handleName = e => {
     return { type: HANDLE_NAME, payload: e.target.value }
@@ -60,22 +69,6 @@ export const getRecipes = () => dispatch => {
         });
 };
 
-export const handleLogOut = () => dispatch => {
-    dispatch({ type: LOG_OUT_START })
-    axiosWithAuth()
-        .post('/auth/logout')
-        .then(res => {
-            localStorage.removeItem('token')
-            dispatch({ type: LOG_OUT_SUCCESS })
-            console.log(res, 'Logged out!')
-            
-        })
-        .catch(err => {
-            dispatch({ type: LOG_OUT_FAILURE, payload: err.response })
-            console.log('error logging out;', err)
-        })
-}
-
 export const handleSubmitUser = data => dispatch => {
     dispatch({ type: REGISTER_START })
     const newUser = {...data}
@@ -92,19 +85,82 @@ export const handleSubmitUser = data => dispatch => {
         })
 }
 
-export const handleLogin = data => dispatch => {
+export const handleLogOut = () => dispatch => {
+    dispatch({ type: LOG_OUT_START })
+    axiosWithAuth()
+        .post('/auth/logout')
+        .then(res => {
+            localStorage.removeItem('token')
+            dispatch({ type: LOG_OUT_SUCCESS })
+            console.log(res, 'Logged out!')
+            
+        })
+        .catch(err => {
+            dispatch({ type: LOG_OUT_FAILURE, payload: err.response })
+            console.log('error logging out;', err)
+        })
+}
+
+
+export const handleLogin = (username, password) => dispatch => {
     dispatch({ type: LOG_IN_START })
-    const user = {...data}
+    const user = {
+        username: username,
+        password: password
+    }
 
     axiosWithAuth()
         .post(`/auth/login`, user)
         .then(res => {
-            dispatch({ type: LOG_IN_SUCCESS, payload: res})
+            dispatch({ type: LOG_IN_SUCCESS, payload: res.data})
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('userId', res.data[0].id)
             
         })
         .catch(err => {
             dispatch({ type: LOG_IN_FAILURE, payload: err})
+        })
+}
+
+export const submitRecipe = data => dispatch => {
+    dispatch({ type: SUBMIT_RECIPE_START })
+    const newRecipe = {...data}
+
+    axiosWithAuth()
+        .post(`/auth/recipes/${newRecipe.user_id}`, newRecipe)
+        .then(res => {
+            dispatch({ type: SUBMIT_RECIPE_SUCCESS, payload: res.data })
+            console.log(res)
+        })
+        .catch(err => {
+            dispatch({ type: SUBMIT_RECIPE_FAILURE, payload: err })
+        })
+}
+
+export const updateRecipe = data => dispatch => {
+    dispatch({ type: UPDATE_RECIPE_START })
+    const recipeToUpdate = {...data}
+
+    axiosWithAuth()
+        .post(`/auth/recipes/${recipeToUpdate.id}/`, recipeToUpdate)
+        .then(res => {
+            dispatch({ type: UPDATE_RECIPE_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            dispatch({ type: UPDATE_RECIPE_FAILURE, payload: err })
+        })
+}
+
+export const deleteRecipe = data => dispatch => {
+    dispatch({ DELETE_RECIPE_START })
+    const recipe = {...data}
+
+    axiosWithAuth()
+        .delete(`/auth/recipes/${recipe.id}`)
+        .then(res => {
+            dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            dispatch({ type: DELETE_RECIPE_FAILURE, payload: err})
         })
 }
