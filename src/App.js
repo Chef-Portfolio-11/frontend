@@ -18,6 +18,8 @@ import './App.css'
 import PrivateRoute from './components/PrivateRoute';
 import Profiles from './components/Profiles';
 import Login from './components/Login'
+import EditRecipe from './components/EditRecipe';
+import Recipe from './components/Recipe'
 
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
         <Switch>
           {/* Routes */}
           <Route exact path='/' component={RecipeList} />
-          <Route path='/register' component={NewUserForm} />
+          <Route path={`/recipe/:id`} render={props => {return <Recipe {...props} />}} />
           <Route path='/Profiles' component={Profiles} />
           <Route path='/MyRecipesOld' component={RecipesByChef} />
           <Route path='/CubeTest' component={Cube} />
@@ -39,6 +41,7 @@ function App() {
             return <CreateRecipe />
           }} />
           <Route path='/login' component={Cube} />
+          <Route path='/edit-recipe' render={props => {return <EditRecipe {...props} />}} />
           {/* <Route path='/login' component={Login} />
           <Route path='/register' component={NewUserForm} /> */}
           <PrivateRoute path='/protected' component={Profiles} />

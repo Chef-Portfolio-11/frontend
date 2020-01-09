@@ -11,11 +11,12 @@ function Login(props) {
     return username.length > 0 && password.length > 0;
   }
 
-  function handleLogin(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log('clicked')
     props.handleLogin(username, password)
     console.log(username, password)
+    // props.history.push('/protected')
   }
 
   return (
@@ -42,10 +43,7 @@ function Login(props) {
           Login
         </Button> */}
 
-        <button className='submit-btn' onClick={e => {
-                e.preventDefault();
-                props.handleLogin(props.inputValues);
-            }}>Log In</button>
+        <button className='submit-btn' type='submit'>Log In</button>
 
       </form>
     </div>

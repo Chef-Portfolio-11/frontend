@@ -66,7 +66,7 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function CreateRecipe() {
+export default function CreateRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
@@ -96,7 +96,7 @@ export default function CreateRecipe() {
         })
 
         submitRecipe(recipe);
-        // props.history.push('/profile')
+        props.history.push('/profile')
 
         console.log(recipe.recipe);
     }

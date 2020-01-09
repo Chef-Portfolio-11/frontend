@@ -240,10 +240,10 @@ input{
 	background: cadetblue;
 }
 
-.recipe{
+.recipe-card{
 	background-color: rgb(35, 82, 121);
 	color: rgb(255, 255, 255);
-	width: 30%;
+	width: 30rem;
 	margin: 1rem;
 	padding: 1rem;
 	border-radius: 10px;
