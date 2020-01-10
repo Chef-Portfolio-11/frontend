@@ -17,6 +17,7 @@ import RecipeList from './components/RecipeList'
 import './App.css'
 import PrivateRoute from './components/PrivateRoute';
 import Profiles from './components/Profiles';
+import Profile from './components/Profile'
 import Login from './components/Login'
 
 
