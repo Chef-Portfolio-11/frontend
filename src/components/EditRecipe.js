@@ -217,7 +217,7 @@ function EditRecipe(props) {
             })
         }
         else {
-            // // target.remove();
+            // target.remove();
             let value = e.target.previousElementSibling;
         }
     }

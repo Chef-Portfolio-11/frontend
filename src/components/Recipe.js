@@ -21,7 +21,7 @@ const Recipe = props => {
                 <p>Chef Name</p>
             </div>
             <div className='buttons'>
-                <button className='edit-btn'>Edit</button>
+                <button className='edit-btn' onClick={}>Edit</button>
                 <button className='delete-btn' onClick={props.deleteRecipe}>Delete</button>
             </div>
 

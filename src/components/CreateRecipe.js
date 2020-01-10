@@ -219,7 +219,7 @@ function CreateRecipe(props) {
             })
         }
         else {
-            // // target.remove();
+            // target.remove();
             let value = e.target.previousElementSibling;
         }
     }
