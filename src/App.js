@@ -12,15 +12,10 @@ import RecipeList from './components/RecipeList'
 import './App.css'
 import PrivateRoute from './components/PrivateRoute';
 import Profiles from './components/Profiles';
-<<<<<<< HEAD
-import Profile from './components/Profile'
-import Login from './components/Login'
-=======
 import EditRecipe from './components/EditRecipe';
 import Recipe from './components/Recipe'
 import ChefDashboard from './components/ChefDashboard';
 import { connect } from 'react-redux'
->>>>>>> 3f9e762c250bef59ba2787b1304e4e54890fd27c
 
 
 function App() {

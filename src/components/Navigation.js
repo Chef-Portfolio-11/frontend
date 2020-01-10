@@ -15,12 +15,7 @@ const Navigation = props => {
                         Log Out
                     </NavLink>
                 }
-<<<<<<< HEAD
-                </nav>
-            </div>
-=======
             </nav>
->>>>>>> 3f9e762c250bef59ba2787b1304e4e54890fd27c
             <Cube />
         </div>
     )
