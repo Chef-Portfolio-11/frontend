@@ -1,29 +1,35 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-// import "./css/Login.css";
+import { handleLogin } from "../actions/actions";
+import { connect } from "react-redux";
 
-export default function Login(props) {
-  const [email, setEmail] = useState("");
+function Login(props) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    return username.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+//   needs to redirect to protected route after login
+  const handleSubmit = (event) => {
     event.preventDefault();
+    console.log('clicked')
+    props.handleLogin(username, password)
+    console.log(username, password)
+    // props.history.push('/protected')
   }
 
   return (
     <div className="Login">
-      <form onSubmit={handleSubmit}>
-        <FormGroup controlId="email" bsSize="large">
-          <FormLabel>Email</FormLabel>
+      <form>
+        <FormGroup controlId="username" bsSize="large">
+          <FormLabel>username</FormLabel>
           <FormControl
             autoFocus
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            type="username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
@@ -34,10 +40,25 @@ export default function Login(props) {
             type="password"
           />
         </FormGroup>
-        <Button block bsSize="large" disabled={!validateForm()} type="submit">
+        {/* <Button block bsSize="large" disabled={!validateForm()} type="submit">
           Login
-        </Button>
+        </Button> */}
+
+        <button className='submit-btn' onClick={handleSubmit}>Log In</button>
+
       </form>
     </div>
   );
 }
+
+const mapStateToProps = state => {
+    return {
+        inputvalues: state.inputvalues,
+        isPosting: state.isPosting
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { handleLogin }
+)(Login)

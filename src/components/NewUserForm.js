@@ -8,8 +8,6 @@ const NewUserForm = props => {
 
     return (
         <>
-        <h3>Start your profile</h3>
-        <h2>Build your profile</h2>
         <form>
             <input
                 type='text'

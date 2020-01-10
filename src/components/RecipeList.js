@@ -4,6 +4,7 @@ import { getRecipes } from '../actions/actions'
 import Loader from 'react-loader-spinner'
 import Recipe from './Recipe.js'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import { Link } from 'react-router-dom'
 
 const RecipeList = props => {
 
@@ -28,7 +29,7 @@ const RecipeList = props => {
             <div className='recipe-list'>
             {props.recipeData && 
                 props.recipeData.map(recipe => (
-                    <Recipe key={recipe.id} recipe={recipe} />
+                        <Recipe key={recipe.id} recipe={recipe} id={recipe.id} />
                     ))
                 }
             </div>

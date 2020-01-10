@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
-import axios from "axios";
-import { submitRecipe } from "../actions/actions";
+import { submitRecipe, updateRecipe } from "../actions/actions";
 import { connect } from 'react-redux';
 
 const Input = styled.input`
@@ -67,17 +66,17 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-function CreateRecipe(props) {
+function EditRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
-            id: 0,
-            title: "",
-            meal_type: "Breakfast",
-            description: "",
-            ingredient_name: [],
-            instructions: "",
-            user_id: localStorage.getItem('userId')
+            id: props.recipe.id,
+            title: props.recipe.title,
+            meal_type: props.recipe.meal_type,
+            description: props.recipe.description,
+            ingredient_name: props.recipe.ingredient_name,
+            instructions: props.recipe.instructions,
+            user_id: props.recipe.user_id
         },
         addNew: false,
         item: ""
@@ -85,19 +84,18 @@ function CreateRecipe(props) {
 
     const [ingredient, setIngredient] = useState({});
 
-    const addRecipe = e => {
+    const editRecipe = e => {
         e.preventDefault();
         setRecipe({
             ...recipe,
             recipe: {
                 ...recipe.recipe,
-                id: Date.now(),
-                ingredient_name: Object.values(ingredient).join('')
+                ingredient_name: Object.values(ingredient)
             }
         })
 
         submitRecipe(recipe);
-        // props.history.push('/profile')
+        props.history.push('/profile')
 
         console.log(recipe.recipe);
     }
@@ -116,7 +114,7 @@ function CreateRecipe(props) {
             ...recipe,
             addNew: false
         });
-
+        updateRecipe(recipe)
         const length = () => {
             return Object.keys(ingredient).length;
         }
@@ -257,21 +255,21 @@ function CreateRecipe(props) {
 
             <textarea onChange={recInst} placeholder="Instructions..." />
 
-            <button onClick={addRecipe}>Add Recipe</button>
+            <button onClick={editRecipe}>Update Recipe</button>
         </Form>
         </div>
     )
 }
 
-// connect to redux
 const mapStateToProps = state => {
     return {
         inputvalues: state.inputvalues,
         isPosting: state.isPosting,
+        recipeToEdit: state.recipeToEdit
     }
 }
 
 export default connect(
     mapStateToProps,
-    { submitRecipe }
-)(CreateRecipe)
+    { updateRecipe }
+)(EditRecipe)

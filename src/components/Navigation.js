@@ -1,39 +1,38 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import axiosWithAuth from '../utils/axiosWithAuth';
-import Cube from './Cube';
+import { connect } from 'react-redux';
+import { handleLogOut } from '../actions/actions'
+import Cube from './Cube'
 
-const Navigation = () => {
-    const isLoggedIn = false;
-
-    const logOut = () => {
-        axiosWithAuth
-            .post('/logout')
-            .then(res => {
-                localStorage.removeItem('token')
-                console.log(res, 'Logged out!')
-            })
-            .catch(err => {
-                console.log('error logging out;', err)
-            })
-    }
+const Navigation = props => {
 
     return (
-        <div>
-            <div className='navbar-container'>
-                <NavLink className='logo' to='/'><h2>Chef<span className='highlight'>Port</span>.</h2></NavLink>
-                <nav className='navbar'>
-                    {isLoggedIn ? 
-                    <NavLink className='nav-btn' to='/' onClick={logOut()}>Log Out</NavLink> : 
-                    <>
-                    <NavLink className='nav-btn' to='/login'>Log In</NavLink>
-                    </>
+        <div className='navbar-container'>
+            <NavLink className='logo' to='/'><h2>Chef<span className='highlight'>Port</span>.</h2></NavLink>
+            <nav className='navbar'>
+                {localStorage.getItem('token') &&
+                    <NavLink className='nav-btn' to='/' onClick={props.handleLogOut}>
+                        Log Out
+                    </NavLink>
                 }
+<<<<<<< HEAD
                 </nav>
             </div>
+=======
+            </nav>
+>>>>>>> 3f9e762c250bef59ba2787b1304e4e54890fd27c
             <Cube />
         </div>
     )
 }
 
-export default Navigation;
+const mapStatetoProps = state => {
+    return {
+        isLoggedIn: state.isLoggedIn,
+    }
+}
+
+export default connect(
+    mapStatetoProps,
+    { handleLogOut }
+)(Navigation)
