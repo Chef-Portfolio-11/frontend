@@ -84,13 +84,12 @@ function EditRecipe(props) {
 
     const [ingredient, setIngredient] = useState({});
 
-    const addRecipe = e => {
+    const editRecipe = e => {
         e.preventDefault();
         setRecipe({
             ...recipe,
             recipe: {
                 ...recipe.recipe,
-                id: Date.now(),
                 ingredient_name: Object.values(ingredient)
             }
         })
@@ -115,7 +114,7 @@ function EditRecipe(props) {
             ...recipe,
             addNew: false
         });
-
+        updateRecipe(recipe)
         const length = () => {
             return Object.keys(ingredient).length;
         }
@@ -256,7 +255,7 @@ function EditRecipe(props) {
 
             <textarea onChange={recInst} placeholder="Instructions..." />
 
-            <button onClick={updateRecipe}>Update Recipe</button>
+            <button onClick={editRecipe}>Update Recipe</button>
         </Form>
         </div>
     )

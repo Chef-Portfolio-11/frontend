@@ -257,7 +257,7 @@ function CreateRecipe(props) {
 
             <textarea onChange={recInst} placeholder="Instructions..." />
 
-            <button onClick={props.submitRecipe}>Add Recipe</button>
+            <button onClick={addRecipe}>Add Recipe</button>
         </Form>
         </div>
     )
