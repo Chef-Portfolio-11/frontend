@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
 import { submitRecipe, updateRecipe } from "../actions/actions";
+import { connect } from 'react-redux';
 
 const Input = styled.input`
     margin: 0.25rem auto;
@@ -65,7 +66,7 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function EditRecipe(props) {
+function EditRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
@@ -260,3 +261,16 @@ export default function EditRecipe(props) {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        inputvalues: state.inputvalues,
+        isPosting: state.isPosting,
+        recipeToEdit: state.recipeToEdit
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { updateRecipe }
+)(EditRecipe)

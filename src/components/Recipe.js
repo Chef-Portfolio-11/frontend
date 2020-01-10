@@ -1,6 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { deleteRecipe } from '../actions/actions'
+import EditRecipe from './EditRecipe';
 
 const Recipe = props => {
+    console.log(props)
     return(
 
         <div className='recipe-card'>
@@ -18,7 +22,7 @@ const Recipe = props => {
             </div>
             <div className='buttons'>
                 <button className='edit-btn'>Edit</button>
-                <button className='delete-btn'>Delete</button>
+                <button className='delete-btn' onClick={props.deleteRecipe}>Delete</button>
             </div>
 
         </div>
@@ -26,4 +30,13 @@ const Recipe = props => {
     )
 }
 
-export default Recipe
+const mapStateToProps = state => {
+    return {
+        isDeleting: state.isDeleting
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { deleteRecipe }
+)(Recipe)

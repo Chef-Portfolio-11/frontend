@@ -3,6 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
 import axios from "axios";
 import { submitRecipe } from "../actions/actions";
+import { connect } from 'react-redux';
 
 const Input = styled.input`
     margin: 0.25rem auto;
@@ -66,7 +67,7 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function CreateRecipe(props) {
+function CreateRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
@@ -256,10 +257,21 @@ export default function CreateRecipe(props) {
 
             <textarea onChange={recInst} placeholder="Instructions..." />
 
-            <button onClick={addRecipe}>Add Recipe</button>
+            <button onClick={props.submitRecipe}>Add Recipe</button>
         </Form>
         </div>
     )
 }
 
 // connect to redux
+const mapStateToProps = state => {
+    return {
+        inputvalues: state.inputvalues,
+        isPosting: state.isPosting,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { submitRecipe }
+)(CreateRecipe)
