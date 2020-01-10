@@ -29,9 +29,7 @@ const RecipeList = props => {
             <div className='recipe-list'>
             {props.recipeData && 
                 props.recipeData.map(recipe => (
-                    <Link to={`/recipe/${recipe.id}`}>
                         <Recipe key={recipe.id} recipe={recipe} id={recipe.id} />
-                    </Link>
                     ))
                 }
             </div>

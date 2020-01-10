@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
 import { submitRecipe, updateRecipe } from "../actions/actions";
+import { connect } from 'react-redux';
 
 const Input = styled.input`
     margin: 0.25rem auto;
@@ -65,7 +66,7 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function EditRecipe(props) {
+function EditRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
@@ -83,13 +84,12 @@ export default function EditRecipe(props) {
 
     const [ingredient, setIngredient] = useState({});
 
-    const addRecipe = e => {
+    const editRecipe = e => {
         e.preventDefault();
         setRecipe({
             ...recipe,
             recipe: {
                 ...recipe.recipe,
-                id: Date.now(),
                 ingredient_name: Object.values(ingredient)
             }
         })
@@ -114,7 +114,7 @@ export default function EditRecipe(props) {
             ...recipe,
             addNew: false
         });
-
+        updateRecipe(recipe)
         const length = () => {
             return Object.keys(ingredient).length;
         }
@@ -217,7 +217,7 @@ export default function EditRecipe(props) {
             })
         }
         else {
-            // // target.remove();
+            // target.remove();
             let value = e.target.previousElementSibling;
         }
     }
@@ -255,8 +255,21 @@ export default function EditRecipe(props) {
 
             <textarea onChange={recInst} placeholder="Instructions..." />
 
-            <button onClick={updateRecipe}>Update Recipe</button>
+            <button onClick={editRecipe}>Update Recipe</button>
         </Form>
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        inputvalues: state.inputvalues,
+        isPosting: state.isPosting,
+        recipeToEdit: state.recipeToEdit
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { updateRecipe }
+)(EditRecipe)

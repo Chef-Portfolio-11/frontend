@@ -116,12 +116,12 @@ export const handleLogin = (username, password) => dispatch => {
 
 export const handleLogOut = () => dispatch => {
     dispatch({ type: LOG_OUT_START })
-    
     dispatch({ type: LOG_OUT_SUCCESS })
+
     localStorage.removeItem('token')
     localStorage.removeItem('userId')
-    console.log('Logged out!')
-    
+
+    console.log('Logged out!')    
 }
 
 export const submitRecipe = data => dispatch => {
@@ -159,18 +159,16 @@ export const updateRecipe = data => dispatch => {
 }
 
 export const deleteRecipe = data => dispatch => {
-    dispatch({ DELETE_RECIPE_START })
     console.log('deleting...')
     const recipe = {...data}
+    console.log(recipe)
 
     axiosWithAuth()
         .delete(`/auth/recipes/${recipe.id}`)
         .then(res => {
-            dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data })
             console.log('deleted!')
         })
         .catch(err => {
-            dispatch({ type: DELETE_RECIPE_FAILURE, payload: err })
             console.log('recipe was not deleted')
         })
 }
