@@ -23,7 +23,7 @@ h2{
 .navbar-container h2{
   font-size: 3rem;
   margin: 1rem 2rem;
-  color: #07FE20;
+  color: #1e9442;
 }
 
 .logo{
@@ -43,8 +43,8 @@ h2{
   margin: auto 2rem;
   padding: 1rem;
   text-decoration: none;
-  color: #2F2D2D;
-  background-color: #07FE20;
+  color: rgb(226, 216, 216);
+  background-color: #1e9442;
   border-radius: 10px;
   font-size: 1.8rem;
 }
@@ -78,12 +78,6 @@ body {
 	font-family: 'Roboto Mono', monospace;
 	user-select: none;
 	color: #e6e7e8;
-}
-.wrapper {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
 }
 .inputs {
 	background: rgba(255, 255, 255, 0.03);
@@ -123,7 +117,6 @@ body {
 .cube-button {
 	cursor: pointer;
 	font-family: 'Roboto Mono', monospace;
-	-webkit-appearance: none;
 	background: #e6e7e8;
 	border: none;
 	outline: none;
@@ -150,17 +143,17 @@ body {
 	position: relative;
 	width: 500px;
 	height: 500px;
-	transition: perspective 300ms ease;
+	transition: perspective 1s;
 }
 .cube {
 	height: 100%;
 	width: 100%;
 	position: absolute;
 	transform-style: preserve-3d;
-	transition: transform 300ms ease;
+	transition: transform 2s;
 }
 .cube.animated {
-	transition-duration: 500ms;
+	transition-duration: 1s;
 }
 .cube figure {
 	position: absolute;
@@ -172,15 +165,15 @@ body {
 	transition: opacity 300ms;
 }
 .cube figure:nth-of-type(1) {
-	background: #db5461;
+	background: #1e9442;
 	transform: translateZ(150px);
 }
 .cube figure:nth-of-type(2) {
-	background: #db5461;
+	background: #1e9442;
 	transform: rotateX(180deg) translateZ(150px);
 }
 .cube figure:nth-of-type(3) {
-	background: #593c8f;
+	background: #8f3c3c;
 	transform: rotateY(-90deg) translateZ(150px);
 }
 .cube figure:nth-of-type(4) {
@@ -188,27 +181,22 @@ body {
 	transform: rotateY(90deg) translateZ(150px);
 }
 .cube figure:nth-of-type(5) {
-	background: #8ef9f3;
+	background: rgb(74, 74, 136);
 	transform: rotateX(90deg) translateZ(150px);
 }
 .cube figure:nth-of-type(6) {
-	background: #8ef9f3;
+	background: #0f4b21;
 	transform: rotateX(-90deg) translateZ(150px);
 }
 .loginContainer div, .logoutContainer div, .registerContainer div {
 padding-top: 218px;
 font-size: 5em;
 }
-/* .loginRegistration {
-position: absolute;
-height: 300px;
-top: -150px;
-right: 0px;
-} */
-/* .loginRegistration.fullpage {
-top: 20%;
-right: 50%;
-} */
+
+.loginContainer {
+	height: 20px;
+	width: 20px;
+}
 
 form{
 	margin: 0;
@@ -249,15 +237,17 @@ input{
 	flex-wrap: wrap;
 	margin: auto;
 	justify-content: space-around;
+	background: cadetblue;
 }
 
-.recipe{
-	background-color: #C4C4C4;
-	color: black;
-	width: 25rem;
+.recipe-card{
+	background-color: rgb(35, 82, 121);
+	color: rgb(255, 255, 255);
+	width: 30rem;
 	margin: 1rem;
 	padding: 1rem;
 	border-radius: 10px;
+	box-shadow: 4px 4px 4px 2px black;
 }
 
 .recipe img{
@@ -304,3 +294,66 @@ input{
 	flex-wrap: wrap;
 }
 
+.cancelButtonContainer {
+	height: 20px;
+	width: 20px;
+	float: right;
+	border-radius: 50%;
+}
+
+.cancelButtonContainer button {	
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+}
+
+.cube .form-label {
+	display: block;
+	font-size: 2em;
+}
+.cube .Login {
+  padding: 20px 0;
+}
+
+.cube button {
+	margin-top: 10px;
+    width: 33%;
+    padding: 0.25rem;
+    font-size: 1.4rem;
+    border-radius: 10px;
+}
+
+.tuckedAway {
+	top: -220px;
+}
+.notTuckedAway {
+	top: 75px;
+}
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* height: 100vh; */
+	position: absolute;
+	transition: all 1s;
+	right: 50px;
+}
+
+.wrapper.notTuckedAway .backDrop {
+	height: 100vh;
+	left: 0px;
+	opacity: 60%;
+}
+.wrapper.tuckedAway .backDrop {
+	height: 0px;
+	right: 0px;
+	opacity: 0%;
+}
+.wrapper .backDrop {
+	position: fixed;
+	height: 0px;
+	width: 100vw;
+	top: 0px;
+	background: black;
+	transition: opacity 2s;
+}

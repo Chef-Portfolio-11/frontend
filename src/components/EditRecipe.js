@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { FaTrash } from "react-icons/fa";
 import styled from "styled-components";
-import axios from "axios";
-import { submitRecipe } from "../actions/actions";
+import { submitRecipe, updateRecipe } from "../actions/actions";
 
 const Input = styled.input`
     margin: 0.25rem auto;
@@ -66,17 +65,17 @@ const Cont = styled.div`
     background-color: #eee;
 `
 
-export default function CreateRecipe(props) {
+export default function EditRecipe(props) {
 
     const [recipe, setRecipe] = useState({
         recipe: {
-            id: new Date(),
-            title: "",
-            meal_type: "Breakfast",
-            description: "",
-            ingredient_name: [],
-            instructions: "",
-            user_id: localStorage.getItem('userId')
+            id: props.recipe.id,
+            title: props.recipe.title,
+            meal_type: props.recipe.meal_type,
+            description: props.recipe.description,
+            ingredient_name: props.recipe.ingredient_name,
+            instructions: props.recipe.instructions,
+            user_id: props.recipe.user_id
         },
         addNew: false,
         item: ""
@@ -91,12 +90,12 @@ export default function CreateRecipe(props) {
             recipe: {
                 ...recipe.recipe,
                 id: Date.now(),
-                ingredient_name: Object.values(ingredient).join('')
+                ingredient_name: Object.values(ingredient)
             }
         })
 
         submitRecipe(recipe);
-        // props.history.push('/profile')
+        props.history.push('/profile')
 
         console.log(recipe.recipe);
     }
@@ -256,10 +255,8 @@ export default function CreateRecipe(props) {
 
             <textarea onChange={recInst} placeholder="Instructions..." />
 
-            <button onClick={addRecipe}>Add Recipe</button>
+            <button onClick={updateRecipe}>Update Recipe</button>
         </Form>
         </div>
     )
 }
-
-// connect to redux
